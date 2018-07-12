@@ -1,0 +1,451 @@
+body{
+	font-family: open sans, sans-serif, Helvetical;
+	line-height: 1.5;
+	background-color: #ffffff;
+	margin:0;
+	padding:0;
+	display: block;
+	height: 100%;
+}
+
+
+header{
+
+	background: #0087E2;
+	color:#ffffff;
+	min-height: 40px;
+	border-bottom: 10px;
+	padding-top: 20px;
+	max-height: 50px;
+	
+}
+
+header a{
+	text-decoration: none;
+	color:#ffffff
+}
+#headercontainer{
+	width: 80%;
+	margin: auto;
+	overflow: hidden;	
+}
+#homecontainer{
+	float: left;
+	width: 40%;
+}
+
+#homecontainer img{
+	float: left;
+	width: 30px;
+	height: 30px;
+	
+}
+#homecontainer h1{
+	position:relative;
+	margin-top: 0px;
+	padding-top: 0px;
+	left:15px;
+	
+}
+
+header nav{
+	float: right;
+	
+}
+
+header ul{
+	margin-top:10px;;
+	padding:0;
+	float: left;
+}
+
+header ul li{
+	display: inline;
+	float: left;
+	padding: 0 20px 0 20px;
+	text-decoration: none;	
+}
+
+
+header a:hover{
+	font-weight: bold;
+	opacity: 0.6;
+}
+#bodycontainer{
+	position: relative;
+}
+#backimage{
+	width: 100%;
+    height: auto;
+}
+
+
+#brandcontainer{
+	position: absolute;
+	top: 0;
+	right:0;
+	left: 0;
+	bottom: 0;
+	width: 100%; 
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+
+#brandus{
+	margin-top: 130px;
+	float: left;
+	width: 60%;
+	
+}
+#brandus a{
+	margin-left: 0;
+}
+
+ #brandus h1{
+	font-family: Open Sans;
+	line-height: 1.8;
+	color: white;
+	font-size: 30px;
+}
+
+
+
+
+/* sign up display*/
+#signupbox{
+	float: right;
+	width: 30%;
+	
+}
+#signup {
+	width: 100%;
+	background-color: #e3e3e3;
+	border-radius: 10px;
+	margin-top: 80px;
+	
+}
+
+#signupcontent{
+	margin-left: 20px;
+}
+#signupcontent input, #signupcontent label{
+    display:block;
+	font-size: 12px;
+}
+#signupcontent h3,#signupcontent input, #signupcontent label,#signupcontent p{
+	color: #4b525b;
+}
+
+
+#signupcontent p{
+	font-size: 11px;
+}
+
+
+/*  input fields */
+  #signupcontent input{
+	width: 80%;
+	padding: 12px;
+	margin: 5px 0 10px 0px;
+	display: inline-block;
+	border: 2px solid rgba(34,167,240, 0.3);
+	background: #f1f1f1;
+	border-radius: 4px;
+}
+
+#signupcontent input:focus {
+  background-color: #ddd;
+  outline: 2px solid rgba(34,167,240, 0.4);
+}
+
+
+/* Set a style for all buttons */
+#signupcontent button {
+	background-color: #0087E2;
+	color: white;
+	padding: 10px 15px;
+	margin-left: 40px;
+	margin-bottom: 20px;
+	border: none;
+	cursor: pointer;
+	width: 80px;
+	border-radius: 4px;
+	opacity: 0.9;
+}
+
+#signupcontent button:hover {
+  opacity:1;
+}
+
+
+
+/* boxes */
+#descriptionbox{
+	clear: both;
+	width: 80%;
+	margin:auto;
+	margin-top: 60px;
+}
+.layoutbox{
+	
+	float: left;
+	width: 30%;
+	padding: 1%;
+	border: 2px solid #e3e3e3;
+}
+.layoutbox img{
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	filter: contrast(160%);
+	
+}
+.layoutbox h3{
+
+	text-align: center;
+}
+.layoutbox p{
+	text-align: justify;
+	font-size: 14px;
+	line-height: 1.7;
+}
+
+#firstfooterbox{
+	clear: both;
+	height: 200px;	
+	position: relative;
+	background: url('../img/bookdiary.jpg') no-repeat;
+	background-size: 100%;
+	margin-top: 100px;
+}
+
+
+#ffcover{	
+	height: 100%;
+	background:#4b525b;
+	margin-top: 0;
+	padding: 0;
+	background: rgb(106, 90, 205);
+	opacity: 0.5;
+	position: absolute;
+	width: 100%;
+}
+#ffcontent{
+	position: absolute;
+	z-index: 10;
+	left: 0; 
+	right: 0; 
+	margin-left: auto; 
+	margin-right: auto; 
+	width: 200px;
+}
+
+.startbtn {
+    display: block;
+    width: 180px;
+    height: 25px;
+    background: #0087E2;
+    padding: 10px;
+    text-align: center;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+	text-decoration: none;
+
+	
+}
+
+
+footer{	
+	position: absolute;
+	background-color: rgb(36, 41, 46);
+	width: 100%;
+	min-height: 80px;
+	text-align: center;
+	line-height: 1.7;
+	display: inline;
+	color:  #e3e3e3;
+	
+}
+footer p,footer a{
+	font-size: 12px;
+	margin-top: 30px;
+	color: #e3e3e3;
+}
+
+
+/*menu for small screen*/
+#smallheader {
+	display: none !important;
+	float: left;
+	margin: auto;
+    cursor: pointer;
+	opacity: 0.9;
+}
+
+.bar {
+    width: 20px;
+    height: 4px;
+    background-color: #333;
+    margin: 4px 0;
+}
+
+
+#smallheader :hover {
+  opacity:1;
+}
+
+
+/* The side navigation menu */
+.navslidetoggle{
+	height: 200px !important;
+	display: block !important;
+}
+
+#slidenav {
+	display: none;
+	position: relative;
+	width: 100%;
+    height: 0;
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #e3e3e3; 
+    transition: 0.5s; 
+}
+
+/* The navigation menu links */
+
+#slidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+
+
+/* When you mouse over the navigation links, change their color */
+#slidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+#slidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+
+
+/* smaller screens*/
+
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+	#headercontainer{
+		width:100%;
+	}
+	
+	#smallheader{
+		display: inline-block !important;
+		margin-left: 40px;
+	}
+
+	#homecontainer{
+		margin-left: 30px;
+	}
+	#headercontainer nav{
+		display: none !important;
+	}
+	#signupbox{
+		display: none !important;
+	}
+	
+	#brandus{
+		display: block;
+		float: none;
+		width: 100%;
+	}
+	#descriptionbox{
+		width: 100%;
+	}
+}
+
+
+
+@media screen and (max-width: 600px) {
+	#headercontainer{
+			width:100%;
+		}
+	
+	#smallheader{
+		display: inline-block !important;
+		margin-left: 40px;
+	}
+
+	#homecontainer{
+		margin-left: 30px;
+	}
+	#headercontainer nav{
+		display: none !important;
+	}
+	#signupbox{
+		display: none !important;
+	}
+	
+	#brandus{
+		margin-top: 30px;
+		display: block;
+		float: none;
+		width: 100%;	
+	}
+	#brandcontainer{
+		width: 90%;
+	}
+	.startbtn{
+		width:90px;
+		font-size: 14px;
+	}
+	.layoutbox{
+		float:none;
+		display: block;
+		width: 100%;
+	}
+	
+	h1{
+		font-size: 20px !important;
+	}
+	
+	h2{
+		font-size: 18px !important;
+	}
+	h3{
+		font-size: 15px !important;
+	}
+	#brandus .startbtn{
+		display: none;
+	}
+	#signupcontent input{
+		width: 60%;
+	}
+}
+
+/* sign up page*/
+
+#signupboxsp{
+	margin-bottom: 120px !important;
+	margin: auto;
+	width: 400px;
+}
+
