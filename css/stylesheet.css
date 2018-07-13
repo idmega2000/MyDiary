@@ -124,29 +124,36 @@ header a:hover{
 	width: 100%;
 	background-color: #e3e3e3;
 	border-radius: 10px;
-	margin-top: 80px;
+	margin-top: 60px;
 	
 }
 
-#signupcontent{
+#inputcontent{
 	margin-left: 20px;
 }
-#signupcontent input, #signupcontent label{
+#inputcontent input, #inputcontent label{
     display:block;
 	font-size: 12px;
 }
-#signupcontent h3,#signupcontent input, #signupcontent label,#signupcontent p{
+#inputcontent h3,#inputcontent input, #inputcontent label, #inputcontent p{
 	color: #4b525b;
+}
+#inputcontent h3{
+	text-align: center;
 }
 
 
-#signupcontent p{
+#inputcontent p{
 	font-size: 11px;
+}
+#inputcontent a{
+	text-decoration: none;
+	font-size: 13px;
 }
 
 
 /*  input fields */
-  #signupcontent input{
+  #inputcontent input{
 	width: 80%;
 	padding: 12px;
 	margin: 5px 0 10px 0px;
@@ -156,19 +163,20 @@ header a:hover{
 	border-radius: 4px;
 }
 
-#signupcontent input:focus {
+#inputcontent input:focus {
   background-color: #ddd;
   outline: 2px solid rgba(34,167,240, 0.4);
 }
 
 
 /* Set a style for all buttons */
-#signupcontent button {
+#inputcontent button {
+	display: block;
 	background-color: #0087E2;
 	color: white;
 	padding: 10px 15px;
-	margin-left: 40px;
-	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
 	border: none;
 	cursor: pointer;
 	width: 80px;
@@ -176,7 +184,7 @@ header a:hover{
 	opacity: 0.9;
 }
 
-#signupcontent button:hover {
+#inputcontent button:hover {
   opacity:1;
 }
 
@@ -436,16 +444,79 @@ footer p,footer a{
 	#brandus .startbtn{
 		display: none;
 	}
-	#signupcontent input{
+	#inputcontent input{
 		width: 60%;
+	}
+	#inputcontent{
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
 	}
 }
 
 /* sign up page*/
+#signupbody{
+	height: 100%;
+}
 
 #signupboxsp{
-	margin-bottom: 120px !important;
+	margin-bottom: 0px !important;
 	margin: auto;
 	width: 400px;
 }
+#signupfoot{
+	position:absolute;
+	bottom:0;
+}
 
+
+/*Login page*/
+
+#loginbody{
+	width: 100%;
+	height: 100%;
+	margin-top: 0 !important;
+	background-image: url('../img/diarry.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+	background-size: cover;
+}
+
+#logocontainer img{
+	display: block;
+	margin-top: 100px;
+	margin-left: auto ;
+	margin-right: auto;
+	width: 30px;
+	height:30px;
+
+}
+#logincontainer{
+	margin: auto;
+	height: 350px;
+	width: 300px;
+	background-color: #e3e3e3;
+	border-radius: 10px;
+	margin-top: 40px;
+	
+}
+
+#logincontent{
+	
+}
+
+#loginbody footer{
+	position: absolute;
+	bottom: 0;
+}
+#logincontent #loginbtn {
+	display: block ;
+	margin-top: 20px;
+	margin-left: auto ;
+	margin-right: auto;
+}
+#logincontent h3{
+	margin-top: 0px;
+	text-align: center;
+	margin-right: 20px;
+}
