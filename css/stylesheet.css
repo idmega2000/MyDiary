@@ -40,7 +40,7 @@ header a{
 	height: 30px;
 	
 }
-#homecontainer h1{
+#homecontainer h2{
 	position:relative;
 	margin-top: 0px;
 	padding-top: 0px;
@@ -271,15 +271,18 @@ header a:hover{
 
 
 footer{	
-	position: absolute;
+	clear: both;
 	background-color: rgb(36, 41, 46);
 	width: 100%;
 	min-height: 80px;
 	text-align: center;
 	line-height: 1.7;
-	display: inline;
+	display: block;
 	color:  #e3e3e3;
 	
+}
+#indexfooter{
+	position: absolute;
 }
 footer p,footer a{
 	font-size: 12px;
@@ -519,4 +522,19 @@ footer p,footer a{
 	margin-top: 0px;
 	text-align: center;
 	margin-right: 20px;
+}
+
+
+/* inside login page sylesheet*/
+#leftbody{
+	float: left;
+	width: 20%;
+	height: 100vh;
+	background-color: red;
+}
+#rightbody{
+	float: right;
+	width: 80%;
+	height: 100vh;
+	background-color: blue;
 }
