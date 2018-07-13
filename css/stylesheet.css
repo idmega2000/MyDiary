@@ -34,6 +34,12 @@ header a{
 	width: 40%;
 }
 
+#homecontainer a{
+	margin-top: 0px;
+	padding-top: 0px;
+	
+}
+
 #homecontainer img{
 	float: left;
 	width: 30px;
@@ -44,7 +50,8 @@ header a{
 	position:relative;
 	margin-top: 0px;
 	padding-top: 0px;
-	left:15px;
+	font-size: 19px;
+	left:18px;
 	
 }
 
