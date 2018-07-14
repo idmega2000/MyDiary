@@ -105,8 +105,10 @@ function loginValidation(){
 		ErrorHandle.style.color = 'red';
 		return;
 	}
-	else{
+	else if((input_email="idmega2000@gmail.com") && (input_password="andela")){
 		ErrorHandle.innerHTML = "";
+		document.location.href = 'viewdiary.html';
+		
 		// login account
 	}
 	

@@ -308,17 +308,51 @@ footer a{
 }
 
 
-#signupbtn{
+#createDiary{
 	display: block ;
 	margin-top: 20px;
 	margin-left: auto ;
 	margin-right: auto;
 	background: #0087E2;
     padding: 10px;
+	border: none;
     text-align: center;
     border-radius: 4px;
     color: white;
+	cursor: pointer;
 	
+}
+
+
+/*  input fields */
+  #titleInp{
+	width: 80%;
+	padding: 12px;
+	margin: 5px 0 10px 0px;
+	display: inline-block;
+	border: 2px solid rgba(34,167,240, 0.3);
+	background: #f1f1f1;
+	border-radius: 4px;
+}
+
+#titleInp:focus {
+  background-color: #ddd;
+  outline: 2px solid rgba(34,167,240, 0.4);
+}
+
+#mainContent{
+	width: 80%;
+	padding: 12px;
+	margin: 5px 0 10px 0px;
+	display: inline-block;
+	border: 2px solid rgba(34,167,240, 0.3);
+	background: #f1f1f1;
+	border-radius: 4px;
+}
+#uploadInp{
+	color: white;
+	background-color: #0087E2;
+	padding: 10px;
 }
 
 

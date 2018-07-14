@@ -281,7 +281,7 @@ footer{
 	clear: both;
 	background-color: rgb(36, 41, 46);
 	width: 100%;
-	min-height: 80px;
+	min-height: 100px;
 	text-align: center;
 	line-height: 1.7;
 	display: block;
@@ -493,16 +493,10 @@ footer p,footer a{
 }
 #logincontainer{
 	margin: auto;
-	height: 350px;
+	height: 370px;
 	width: 300px;
 	background-color: #e3e3e3;
-	border-radius: 10px;
-	margin-top: 40px;
-	
-}
-
-#logincontent{
-	
+	border-radius: 10px;	
 }
 
 #loginbody footer{
@@ -521,17 +515,3 @@ footer p,footer a{
 	margin-right: 20px;
 }
 
-
-/* inside login page sylesheet*/
-#leftbody{
-	float: left;
-	width: 20%;
-	height: 100vh;
-	background-color: red;
-}
-#rightbody{
-	float: right;
-	width: 80%;
-	height: 100vh;
-	background-color: blue;
-}

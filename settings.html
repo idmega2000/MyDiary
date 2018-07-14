@@ -24,10 +24,10 @@
 				</div>
 				<nav>
 					<ul>
-						<li><a href="viewdiary.html">View Diary</a></li>
-						<li><a href="adddiary.html">Add Diary</a></li>
-						<li><a href="settings.html">settings</a></li>
-						<li><a href="index.html">Logout</a></li>
+						<li><a href="#">View Diary</a></li>
+						<li><a href="Login.html">Add Diary</a></li>
+						<li><a href="signup.html">settings</a></li>
+						<li><a href="about.html">Logout</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -47,26 +47,31 @@
 		</div>
 		<div id="rightbody">
 			<section id="slidenav">
-				<a href="viewdiary.html">View Diary</a>
-				<a href="adddiary.html">Add Diary</a>
-				<a href="settings.html">settings</a>
-				<a href="index.html">Logout</a>
+				<a href="#">View Diary</a>
+				<a href="login.html">Add Diary</a>
+				<a href="signup.html">settings</a>
+				<a href="feature.html">Logout</a>
 			</section>
 			<div id="rightbodycontainer">
 				<section class="selectlayoutcontainer">
 				
 				<form action="" onsubmit="return false" >
+				
+					<label for="psw">Upload Picture</label><br>
+					<input type="file" placeholder="Upload Document" id="uploadInp" name="upload"><br>
 
-					<label for="title">Title</label> <br>
+					<label for="title">Phone number</label> <br>
 					<input type="text" placeholder="Enter Title" id="titleInp" name="title">
 					<br>
 					
+					<label for="title">Names</label> <br>
+					<input type="text" placeholder="Enter Title" id="titleInp" name="title">
+					<br>
 					
-					<label for="psw">Upload</label><br>
-					<input type="file" placeholder="Upload Document" id="uploadInp" name="upload"><br>
-					<label for="title">Write Up</label> <br>
-					<textarea id="mainContent" rows="10" cols="100"></textarea><br>
-					  <button type="submit" id="createDiary" >Create Diary</button>
+					<label for="title">Username</label> <br>
+					<input type="text" placeholder="Enter Title" id="titleInp" name="title">
+					<br>
+					<button type="submit" id="createDiary" >Save Settings</button>
 					  <br>
 				  </div>
 				</form> 
