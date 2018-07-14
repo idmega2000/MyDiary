@@ -62,7 +62,7 @@ function signupValidation(){
 	}
 	else{
 		ErrorHandle.innerHTML = "";
-		//login account
+		//create account
 	}
 
 }
@@ -105,7 +105,7 @@ function loginValidation(){
 		ErrorHandle.style.color = 'red';
 		return;
 	}
-	else if((input_email="idmega2000@gmail.com") && (input_password="andela")){
+	else if((input_email="kelanidris7@gmail.com") && (input_password="andela")){
 		ErrorHandle.innerHTML = "";
 		document.location.href = 'viewdiary.html';
 		
