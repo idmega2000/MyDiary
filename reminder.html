@@ -41,8 +41,6 @@
 				<label>Kelanidris7@gmail.com </label>
 				<label>08067011624 </label>	
 			</div>
-			<div id="diaryinfo">
-				<label><a href="reminder.html" class="editbtn"> Set Reminder</a></label>
 			</div>
 		</div>
 		<div id="rightbody">
@@ -57,34 +55,29 @@
 				
 				<form action="" onsubmit="return false" >
 				
-					<label for="psw">Upload Picture</label><br>
-					<input type="file" placeholder="Upload Picture" id="uploadInp" name="upload"><br>
 
-					<label for="title">Phone number</label> <br>
-					<input type="text" placeholder="Enter phone number" class="titleInp" name="title">
+					<label for="title">Reminder Title</label> <br>
+					<input type="text" placeholder="Enter Title" class="titleInp" name="title">
 					<br>
 					
-					<label for="title">Names</label> <br>
-					<input type="text" placeholder="Enter Names" class="titleInp" name="title">
+					<label for="title">Please Choose Date</label> <br>
+					<input type="date" placeholder="Choose Date" class="titleInp" name="title">
+					
 					<br>
 					
-					<label for="title">Username</label> <br>
-					<input type="text" placeholder="Enter username" class="titleInp" name="title">
+					<label for="title">email to send to </label> <br>
+					<input type="text" placeholder="Enter Email" id="emailinp" class="titleInp" name="title" disabled>
+					<input type="checkbox" id="emailchecked" name="emailcheckbox" value="Email" checked> Use my Email
 					<br>
-					
-					<label for="title">Username</label> <br>
-					<input type="Date" placeholder="Choose Date of Birth" class="titleInp" name="title">
-					<br>
-					
-					<label for="title">Quotes</label> <br>
-					<input type="text" placeholder="Enter Quotes" class="titleInp" name="title">
-					<br>
+					<div id="othercontent">
+					<label for="title">Content</label> <br>
+					<textarea id="mainContent" rows="10" cols="100"></textarea><br>
 					<button type="submit" id="createDiary" >Save Settings</button>
 					  <br>
+					 </div>
 				  </div>
 				</form> 
 				</section>
-				<label><a href="adddiary.html" class="smalleditbtn"> Edit Writeup</a></label>
 			</div>
 			
 		</div>

@@ -25,10 +25,20 @@ body{
 	background-size: 100%;
 	width: 100%;
 }
- label{
+ #profileinfo label{
 	margin-top: 30px;
 	margin-left: 10px;
 	font-size: 18px;
+	display:inline-block;
+}
+
+#diaryinfo{
+	display: block;
+}
+#diaryinfo label{
+	margin-top: 30px;
+	margin-left: 10px;
+	font-size: 15px;
 	display:inline-block;
 }
 
@@ -325,7 +335,7 @@ footer a{
 
 
 /*  input fields */
-  #titleInp{
+ .titleInp{
 	width: 80%;
 	padding: 12px;
 	margin: 5px 0 10px 0px;
@@ -335,9 +345,12 @@ footer a{
 	border-radius: 4px;
 }
 
-#titleInp:focus {
+.titleInp:focus {
   background-color: #ddd;
   outline: 2px solid rgba(34,167,240, 0.4);
+}
+.emailinp{
+	width: 50%;
 }
 
 #mainContent{
@@ -353,6 +366,10 @@ footer a{
 	color: white;
 	background-color: #0087E2;
 	padding: 10px;
+}
+
+.selectlayoutcontainer form{
+	margin-top: 60px;
 }
 
 
@@ -377,6 +394,9 @@ footer a{
 	}
 	.wordalign h3{
 		font-size: 14px;
+	}
+	#profileinfo label{
+	font-size: 13px;
 	}
 }
 

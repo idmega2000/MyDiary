@@ -113,3 +113,20 @@ function loginValidation(){
 	}
 	
 }
+
+
+//reminder page
+//check if use my email is unchecked
+var email_unchecked = document.getElementById("emailchecked");
+if(email_unchecked){
+	email_unchecked.addEventListener("change", emaiilUnchecked);
+}
+
+function emaiilUnchecked(){
+	if (email_unchecked.checked == true){
+		document.getElementById("emailinp").disabled = true;
+	}
+	else{
+		document.getElementById("emailinp").disabled= false;
+	}
+}
