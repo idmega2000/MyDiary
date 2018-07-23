@@ -7,3 +7,9 @@ export const allDiaries = (req, res) => {
   res.send(allDiaryData.diaries);
 };
 
+export const getADiary = (req, res) => {
+    const data = req.params.id;
+    const single_diary = allDiaryData.diaries.find(item => item.diary_id === data);
+    res.send(single_diary);
+  };
+  
