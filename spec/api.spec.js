@@ -5,10 +5,11 @@ let entries_path = "${base_url}/app/v1/entries"
 
 describe("application server", function() {
     const diary_data = {
-        diry_id : 'psydqkjbid',
-        diary_title: 'this is a title',
-        entry_date: '12/07/2018',
-        entry_content: 'this is a content'
+        diary_id : 'goal',
+        diary_date: '23/02/2019',
+        diary_title: '',
+        diary_body: '',
+        diary_img_url: ''
       };
     describe("GET all enties", function() {
       it("check if server is active and returns status code 200", function(done) {
