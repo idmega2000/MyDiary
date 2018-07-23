@@ -31,3 +31,11 @@ export const getADiary = (req, res) => {
     single_diary.img_url = req.body.img_url;
     res.send(allDiaryData.diaries);
   };
+
+  export const deleteDiary = (req, res) => {
+    const data = req.params.id;
+    const single_diary = allDiaryData.diaries.find(item => item.diary_id === data);
+    const index = Object.keys(allDiaryData.diaries).indexOf(single_diary);
+    allDiaryData.diaries.splice(index, 1);
+    res.send(allDiaryData.diaries);
+  };
