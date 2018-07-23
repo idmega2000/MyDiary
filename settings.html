@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<meta name="description" content="save dialy eve">
+		<meta name="keywords" content="Diary, save daily activities, keep activities record">
+		<meta name="author" content="Idris Kelani">
+		<title> All  Diary</title>
+		<link rel="stylesheet" type="text/css" href="./css/authstylesheet.css">
+	</head>
+<body>
+	<div id="headholder">
+		<header>	
+			<div id="viewheadcontainer">
+				<div id="smallheader">
+					<div class="bar"></div>
+					<div class="bar"></div>
+					<div class="bar"></div>	
+				</div>
+				<div id="homecontainer">
+					<a href="index.html"><img src="./img/logo.png"></a>
+					<h2> My Diary</h2>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="viewdiary.html">View Diary</a></li>
+						<li><a href="adddiary.html">Add Diary</a></li>
+						<li><a href="settings.html">settings</a></li>
+						<li><a href="index.html">Logout</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		</div>
+	<div id="allbodycontainer">
+		<div id="leftbody">
+			<div id="profileinfo">
+				<img src="./img/profilepicture.jpg" alt="profile picture"/>	
+				<label> Idris Wale Kelani</label>
+				<label>Kelanidris7@gmail.com </label>
+				<label>08067011624 </label>	
+			</div>
+			<div id="diaryinfo">
+				<label><a href="reminder.html" class="editbtn"> Set Reminder</a></label>
+			</div>
+		</div>
+		<div id="rightbody">
+			<section id="slidenav">
+				<a href="viewdiary.html">View Diary</a>
+				<a href="adddiary.html">Add Diary</a>
+				<a href="settings.html">settings</a>
+				<a href="index.html">Logout</a>
+			</section>
+			<div id="rightbodycontainer">
+				<section class="selectlayoutcontainer">
+				
+				<form action="" onsubmit="return false" >
+				
+					<label for="psw">Upload Picture</label><br>
+					<input type="file" placeholder="Upload Picture" id="uploadInp" name="upload"><br>
+
+					<label for="title">Phone number</label> <br>
+					<input type="text" placeholder="Enter phone number" class="titleInp" name="title">
+					<br>
+					
+					<label for="title">Names</label> <br>
+					<input type="text" placeholder="Enter Names" class="titleInp" name="title">
+					<br>
+					
+					<label for="title">Username</label> <br>
+					<input type="text" placeholder="Enter username" class="titleInp" name="title">
+					<br>
+					
+					<label for="title">Username</label> <br>
+					<input type="Date" placeholder="Choose Date of Birth" class="titleInp" name="title">
+					<br>
+					
+					<label for="title">Quotes</label> <br>
+					<input type="text" placeholder="Enter Quotes" class="titleInp" name="title">
+					<br>
+					<button type="submit" id="createDiary" >Save Settings</button>
+					  <br>
+				  </div>
+				</form> 
+				</section>
+				<label><a href="adddiary.html" class="smalleditbtn"> Edit Writeup</a></label>
+			</div>
+			
+		</div>
+	</div>
+	<footer>
+		<p>MyDiary &copy; 2018  <a href="#" >Terms & Privacy</a></p>
+	</footer>
+	<script type="text/javascript" src="./js/javascript.js"></script>
+</body>
+
+</html>
