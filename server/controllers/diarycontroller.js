@@ -12,6 +12,15 @@ export const getADiary = (req, res) => {
     const single_diary = allDiaryData.diaries.find(item => item.diary_id === data);
     res.send(single_diary);
   };
+
+  export const postDiary = (req, res) => {
+    const new_input = {
+      diary_id: getId(), diary_date: (new Date()).toString(), 
+      diary_title: req.body.diary_title, diary_body: req.body.diary_body, diary_img_url: req.body.diary_img_url,
+    };
+    allDiaryData.diaries.push(new_input);
+    res.send(allDiaryData.diaries);
+  };
   
 
   export const editDiary = (req, res) => {
