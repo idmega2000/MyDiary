@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "api for my diary app",
+  "main": "app.js",
+  "scripts": {
+    "start": "babel-node app",
+    "start:loc": "nodemon --exec \"babel-node app\"",
+    "test-init": "./node_modules/jasmine/bin/jasmine.js init",
+    "test": "babel-watch node ./node_modules/jasmine/bin/jasmine.js app.js"
+  },
+  "author": "Idris Kelani",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
+    "jasmine": "^3.1.0"
+  }
+}

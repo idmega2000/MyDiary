@@ -39,6 +39,10 @@ function signupValidation(){
 		ErrorHandle.innerHTML = " please fill all inputs";
 		ErrorHandle.style.color = 'red';
 		return;
+	}else if((input_email.indexOf(' ') >=0) || (input_password.indexOf(' ') >=0)){
+		ErrorHandle.innerHTML = " please whitespace is not allowed";
+		ErrorHandle.style.color = 'red';
+		return;
 	}
 	else if(!input_email.match(emailReg)){
 		ErrorHandle.innerHTML = " please enter a valid email";
@@ -87,6 +91,11 @@ function loginValidation(){
 	if ((input_email === "" || input_email.trim().length === 0) || 
 	(input_password === "" || input_password.trim().length === 0)){
 		ErrorHandle.innerHTML = " please fill all inputs";
+		ErrorHandle.style.color = 'red';
+		return;
+	}
+	else if((input_email.indexOf(' ') >=0) || (input_password.indexOf(' ') >=0)){
+		ErrorHandle.innerHTML = " please whitespace is not allowed";
 		ErrorHandle.style.color = 'red';
 		return;
 	}
