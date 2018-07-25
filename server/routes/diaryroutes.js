@@ -1,9 +1,11 @@
 import express from 'express';
 
-import {allDiaries, getADiary, postDiary, editDiary, deleteDiary} from '../controllers/diarycontroller';
+import {
+  allDiaries, getADiary, postDiary, editDiary, deleteDiary,
+} from '../controllers/diarycontroller';
 
 const router = express.Router();
-;
+
 
 router.get('/api/v1/entries', allDiaries);
 router.get('/api/v1/entries/:id', getADiary);

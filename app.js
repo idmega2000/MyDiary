@@ -22,4 +22,4 @@ const server = app.listen(port, host_name, () => {
   console.log(`app is running at ${base_url} with port ${port}`);
 });
 
-export {app};
+export { app };
