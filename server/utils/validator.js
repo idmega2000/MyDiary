@@ -1,11 +1,20 @@
-let InputErrors = (text_input) => {
-    if((!text_input|| text_input === "" || text_input.trim()=== 0) ){
-        throw new Error("Please fill all field");
+export let InputErrors = (text_input) => {
+    if ((!Object.keys(text_input).length) || (!text_input) || (typeof text_input !=="object")){
+        return "Please fill all field";
     }
-    else if (typeof text_input !=="string"){
-        throw new Error("Something went wrong");
+
+    for (let i = 0; i < text_input.length; i++) {
+        if((!text_input[i]) || (text_input[i] === "")){
+            return "Please fill all field";
+        }
     }
-    else if(text_input.indexOf(' ') >= 0){
-        throw new Error('White spaces are not allowed');
-    }
+}
+
+
+//There should be a test for the incomming id 
+// for get request and delete request.
+
+//check for empty 
+let isEmpty= (obj) => {
+    return Object.keys(obj).length === 0;
 }

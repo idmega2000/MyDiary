@@ -1,4 +1,4 @@
-import {InputErrors} from "../server/utils/common";
+
 describe("Validate Input Text", () =>{
     it("input Is passed", () => {
         expect(InputErrors().toEqual("Please fill all field"));
