@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<meta name="description" content="save dialy eve">
+		<meta name="keywords" content="Diary, save daily activities, keep activities record">
+		<meta name="author" content="Idris Kelani">
+		<title> All  Diary</title>
+		<link rel="stylesheet" type="text/css" href="./css/authstylesheet.css">
+	</head>
+<body>
+	<div id="headholder">
+		<header>	
+			<div id="viewheadcontainer">
+				<div id="smallheader">
+					<div class="bar"></div>
+					<div class="bar"></div>
+					<div class="bar"></div>	
+				</div>
+				<div id="homecontainer">
+					<a href="index.html"><img src="./img/logo.png"></a>
+					<h2> My Diary</h2>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="viewdiary.html">View Diary</a></li>
+						<li><a href="adddiary.html">Add Diary</a></li>
+						<li><a href="settings.html">settings</a></li>
+						<li><a href="index.html">Logout</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		</div>
+	<div id="allbodycontainer">
+		<div id="leftbody">
+			<div id="profileinfo">
+				<img src="./img/profilepicture.jpg" alt="profile picture"/>	
+				<label> Idris Wale Kelani</label>
+				<label>Kelanidris7@gmail.com </label>
+				<label>08067011624 </label>	
+			</div>
+			<div id="diaryinfo">
+			</div>
+		</div>
+		<div id="rightbody">
+			<section id="slidenav">
+				<a href="viewdiary.html">View Diary</a>
+				<a href="adddiary.html">Add Diary</a>
+				<a href="settings.html">settings</a>
+				<a href="index.html">Logout</a>
+			</section>
+			<div id="rightbodycontainer">
+				<section class="selectlayoutcontainer">
+				
+				<form action="" onsubmit="return false" >
+
+					<label for="title">Title</label> <br>
+					<input type="text" placeholder="Enter Title" id="titleInp" name="title">
+					<br>
+					<img id="selectedImg" src="./img/tour1.jpg" alt="tourism"/>	
+					<label for="psw">Upload Another Image</label><br>
+					<input type="file" placeholder="Upload Document" id="uploadInp" name="upload"><br>
+					<label for="title">Write Up</label> <br>
+					<textarea id="mainContent" rows="18" cols="100"></textarea><br>
+					  <button type="submit" id="createDiary" >Update Diary</button>
+					  <br>
+				  </div>
+				</form> 
+				</section>
+			</div>
+			
+		</div>
+	</div>
+	<footer>
+		
+		<p>MyDiary &copy; 2018  <a href="#" >Terms & Privacy</a></p>
+		
+	</footer>
+	<script type="text/javascript" src="./js/javascript.js"></script>
+</body>
+
+</html>
