@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 
 app.use(router);
 
+app.set('port', (process.env.PORT || 3000));
 
 const server = app.listen(port, host_name, () => {
   console.log(`app is running at ${base_url} with port ${port}`);
