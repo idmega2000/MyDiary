@@ -3,5 +3,4 @@ node_modules/
 spec/helpers/
 /spec/support/
 spec/
-
-.eslintrc.json
+.nyc_output/

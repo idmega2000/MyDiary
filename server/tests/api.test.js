@@ -1,11 +1,10 @@
-import chai from "chai";
+
 import supertest from "supertest";
 import {app} from '../../app';
 import assert from 'assert';
 
 
 var request = supertest(app);
-const { expect } = chai;
 const path = "/api/v1/entries";
 
 // all entries test

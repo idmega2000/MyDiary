@@ -1,0 +1,12 @@
+exclude_paths:
+   -"UI"
+   -"frontend"
+checks:
+  return-statement;
+    enable: false
+  similar-code:
+    enabled: false
+  identical-code:
+    enable: false
+  file-lines:
+    enable: false    

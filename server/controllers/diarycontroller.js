@@ -1,12 +1,10 @@
 import { allDiaryData } from '../models/userdata';
-import { getId } from '../utils/default';
-import { InputErrors } from '../utils/validator';
+import { getId } from '../helpers/default';
+import { InputErrors } from '../helpers/validator';
 
 
 export default class Diary {
-  constructor (){
-   
-  }
+
   allDiaries (req, res) {
      // Empty Object
     if(!Object.keys(allDiaryData.diaries).length) {
@@ -87,7 +85,6 @@ export default class Diary {
   };
 
 }
-
 
 
 
