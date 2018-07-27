@@ -1,17 +1,14 @@
 import express from 'express';
 
-import {
-  allDiaries, getADiary, postDiary, editDiary, deleteDiary,
-} from '../controllers/diarycontroller';
+import Diary from '../controllers/diarycontroller';
 
 const router = express.Router();
+let diary = new Diary();
 
-
-router.get('/api/v1/entries', allDiaries);
-router.get('/api/v1/entries/:id', getADiary);
-router.post('/api/v1/entries/', postDiary);
-router.put('/api/v1/entries/:id', editDiary);
-router.delete('/api/v1/entries/:id', deleteDiary);
-
+router.get('/api/v1/entries', diary.allDiaries);
+router.get('/api/v1/entries/:id', diary.getADiary);
+router.post('/api/v1/entries/', diary.postDiary);
+router.put('/api/v1/entries/:id', diary.editDiary);
+router.delete('/api/v1/entries/:id', diary.deleteDiary);
 
 export default router;

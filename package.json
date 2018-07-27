@@ -7,7 +7,7 @@
     "start": "babel-node app",
     "start:loc": "nodemon --exec \"babel-node app\"",
     "test-init": "",
-    "test": "mocha --compilers js:babel-core/register ./test/api.test.js"
+    "test": "mocha --compilers js:babel-core/register ./server/test/api.test.js"
   },
   "repository": {
     "type": "git",
