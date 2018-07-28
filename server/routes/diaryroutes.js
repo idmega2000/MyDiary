@@ -1,16 +1,14 @@
 import express from 'express';
 
+import Diary from '../controllers/diarycontroller';
+
 const router = express.Router();
+let diary = new Diary();
 
-
-// Require controller modules.
-const api_controller = require('../controllers/diarycontroller');
-
-router.get('/app/v1/entries', api_controller.allDiaries);
-router.get('/app/v1/entries/:id', api_controller.getADiary);
-router.post('/app/v1/entries/', api_controller.postDiary);
-router.put('/app/v1/entries/:id', api_controller.editDiary);
-router.delete('/app/v1/entries/:id', api_controller.deleteDiary);
-
+router.get('/api/v1/entries', diary.allDiaries);
+router.get('/api/v1/entries/:id', diary.getADiary);
+router.post('/api/v1/entries/', diary.postDiary);
+router.put('/api/v1/entries/:id', diary.editDiary);
+router.delete('/api/v1/entries/:id', diary.deleteDiary);
 
 export default router;

@@ -1,6 +1,11 @@
 language: node_js
 node_js:
   - "node"
-
-install:
-  - npm install
+cache: bundler
+befores_script:
+  - npm i -D co
+script:
+  - npm test
+after_success:
+  - npm run coverage
+  - npm run report-coverage
