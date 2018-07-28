@@ -1,3 +1,4 @@
+// idea is gotten from sackoverfleow
 export let getId = () => {
   let id_num = 10
 	let text_output= "";
