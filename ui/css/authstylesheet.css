@@ -1,4 +1,5 @@
 
+
 body{
 	font-family: open sans, sans-serif, Helvetical;
 	line-height: 1.5;
@@ -260,6 +261,7 @@ footer{
 	min-height: 80px;
 }
 footer p{
+	padding-top: 30px;
 	margin: 0;
 	text-decoration: none;
 }
@@ -335,7 +337,7 @@ footer a{
 
 
 /*  input fields */
- .titleInp{
+ #titleInp{
 	width: 80%;
 	padding: 12px;
 	margin: 5px 0 10px 0px;
@@ -366,11 +368,20 @@ footer a{
 	color: white;
 	background-color: #0087E2;
 	padding: 10px;
+	margin-bottom: 20px;
 }
 
 .selectlayoutcontainer form{
 	margin-top: 60px;
 }
+#selectedImg{
+	margin-left: 0px !important;
+	margin-bottom: 20px;
+
+}
+
+
+
 
 
 
