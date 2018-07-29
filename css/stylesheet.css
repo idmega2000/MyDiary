@@ -350,6 +350,8 @@ footer p,footer a{
 
 
 
+
+
 /* When you mouse over the navigation links, change their color */
 #slidenav a:hover {
     color: #f1f1f1;
@@ -388,6 +390,11 @@ footer p,footer a{
 	#descriptionbox{
 		width: 100%;
 	}
+}
+
+#aboudUs{
+	text-align: justify;
+	margin: 80px;
 }
 
 
@@ -452,6 +459,12 @@ footer p,footer a{
 		margin-right: auto;
 		text-align: center;
 	}
+	#aboudUs{
+	margin: 20px;
+	}
+
+
+
 }
 
 /* sign up page*/
