@@ -1,19 +1,15 @@
 // login validation
-var login_btn = document.getElementById("loginbtn");
-if(login_btn){
-	login_btn.addEventListener("click", loginValidation);
-}
+let login_btn = document.getElementById("loginbtn");
 
-
-function loginValidation(){
+let loginValidation = () =>{
 	//to check for simple validation 
-	var alphanum  = /^[a-z0-9]+$/i;
-	var emailReg = (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+	const alphanum  = /^[a-z0-9]+$/i;
+	const emailReg = (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
-	var input_email = document.getElementById('emailInp').value;
-	var input_password = document.getElementById('passInp').value;
+	let input_email = document.getElementById('emailInp').value;
+	let input_password = document.getElementById('passInp').value;
 	
-	var ErrorHandle = document.getElementById('inputcontent').getElementsByTagName("span")[0];
+	let ErrorHandle = document.getElementById('inputcontent').getElementsByTagName("span")[0];
 
 	if ((input_email === "" || input_email.trim().length === 0) || 
 	(input_password === "" || input_password.trim().length === 0)){
@@ -44,4 +40,8 @@ function loginValidation(){
     }
     return;
 	
+}
+
+if(login_btn){
+	login_btn.addEventListener("click", loginValidation);
 }
