@@ -19,15 +19,15 @@
 				<div class="bar"></div>	
 			</div>
 			<div id="homecontainer">
-				<a href="index.html"><img src="./img/logo.png"></a>
-				<h2> My Diary</h2>
+				<a href="index.html"><img src="./img/logo.png"><h2> My Diary</h2></a>
+				
 			</div>
 			<nav>
 				<ul>
-					<li><a href="#">Home</a></li>
+					<li><a href="index.html">Home</a></li>
 					<li><a href="login.html">Login</a></li>
 					<li><a href="signup.html">Signup</a></li>
-					<li><a href="features.html">Features</a></li>
+					<li><a href="about.html">About</a></li>
 				</ul>
 			</nav>
 			
@@ -37,7 +37,7 @@
 		<a href="#">Home</a>
 		<a href="login.html">Login</a>
 		<a href="signup.html">Signup</a>
-		<a href="feature.html">Features</a>
+		<a href="about.html">About</a>
 	</section>
 			
 	<div id="bodycontainer">
@@ -52,23 +52,24 @@
 				<!--- sign up -->
 				<div id="signupbox">
 					<div id="signup">
-						 <form action="">
+						 <form action="" onsubmit="return false">
 							<div id="inputcontent">
 							<br>
 							<h3>Create an Account</h3>
+							<span></span>
 
 							<label for="email">Email</label>
-							<input type="text" placeholder="Enter Email" name="email" required>
+							<input type="text" placeholder="Enter Email" id="emailInp" name="email" >
 
 							<label for="psw">Password</label>
-							<input type="password" placeholder="Enter Password" name="psw" required>
+							<input type="password" placeholder="Enter Password" id="passInp" name="psw" >
 
 							<label for="psw-repeat">Repeat Password</label>
-							<input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+							<input type="password" placeholder="Repeat Password" id="repeatPassInp" name="psw-repeat">
 
 							<p>By creating an account you agree to our <a href="#" >Terms & Privacy</a>.</p>
 							<p>Already have an Account <a href="login.html" >Login</a>.</p>
-							  <button type="submit" class="signupbtn">Sign Up</button>
+							  <button type="submit" id="signupbtn">Sign Up</button>
 							  <br>
 							  
 						  </div>
@@ -120,6 +121,7 @@
 		<p>MyDiary &copy; 2018  <a href="#" >Terms & Privacy</a></p>
 		
 	</footer>
-	<script type="text/javascript" src="./js/javascript.js"></script>
+	<script type="text/javascript" src="./js/signupjs.js"></script>
+	<script type="text/javascript" src="./js/defaultjs.js"></script>
 </body>
 </html>

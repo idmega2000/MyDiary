@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "mydiary",
   "version": "1.0.0",
   "description": "api for my diary app",
   "main": "app.js",
