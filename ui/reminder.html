@@ -6,7 +6,7 @@
 		<meta name="description" content="save dialy eve">
 		<meta name="keywords" content="Diary, save daily activities, keep activities record">
 		<meta name="author" content="Idris Kelani">
-		<title> All  Diary</title>
+		<title> Reminder</title>
 		<link rel="stylesheet" type="text/css" href="./css/authstylesheet.css">
 	</head>
 <body>
@@ -19,14 +19,14 @@
 					<div class="bar"></div>	
 				</div>
 				<div id="homecontainer">
-					<a href="index.html"><img src="./img/logo.png"></a>
-					<h2> My Diary</h2>
+					<a href="index.html"><img src="./img/logo.png"><h2> My Diary</h2></a>
+					
 				</div>
 				<nav>
 					<ul>
-						<li><a href="viewdiary.html">View Diary</a></li>
 						<li><a href="adddiary.html">Add Diary</a></li>
-						<li><a href="settings.html">settings</a></li>
+						<li><a href="viewdiary.html">View Diary</a></li>
+						<li><a href="settings.html">Settings</a></li>
 						<li><a href="index.html">Logout</a></li>
 					</ul>
 				</nav>
@@ -65,9 +65,11 @@
 					
 					<br>
 					
-					<label for="title">email to send to </label> <br>
+					<input type="checkbox" id="emailchecked" name="emailcheckbox" value="Email" checked> Use my Email <br>
 					<input type="text" placeholder="Enter Email" id="emailinp" class="titleInp" name="title" disabled>
-					<input type="checkbox" id="emailchecked" name="emailcheckbox" value="Email" checked> Use my Email
+					<br>
+
+					
 					<br>
 					<div id="othercontent">
 					<label for="title">Content</label> <br>
@@ -85,7 +87,7 @@
 	<footer>
 		<p>MyDiary &copy; 2018  <a href="#" >Terms & Privacy</a></p>
 	</footer>
-	<script type="text/javascript" src="./js/javascript.js"></script>
+	<script type="text/javascript" src="./js/defaultjs.js"></script>
 </body>
 
 </html>

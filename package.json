@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "mydiary",
   "version": "1.0.0",
   "description": "api for my diary app",
   "main": "app.js",
@@ -35,8 +35,5 @@
     "mocha": "^5.2.0",
     "nyc": "^12.0.2",
     "supertest": "^3.1.0"
-  },
-  "engines": {
-    "node": "v8.11.3"
   }
 }

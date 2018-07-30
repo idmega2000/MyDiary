@@ -260,16 +260,15 @@ footer{
 	background-color: rgb(36, 41, 46);
 	min-height: 80px;
 }
-footer p{
+
+footer p, footer a{
 	padding-top: 30px;
 	margin: 0;
 	text-decoration: none;
+	color: #e3e3e3;
+	padding-left: 30px;
 }
-footer a{
-	margin: 0;
-	text-decoration: none;
-	color: e3e3e3;
-}
+
 
 /* selected content*/
 .selectlayoutcontainer{
@@ -323,7 +322,7 @@ footer a{
 #createDiary{
 	display: block ;
 	margin-top: 20px;
-	margin-left: auto ;
+	margin-left: 35% ;
 	margin-right: auto;
 	background: #0087E2;
     padding: 10px;
@@ -335,16 +334,19 @@ footer a{
 	
 }
 
-
 /*  input fields */
- #titleInp{
+ .titleInp{
 	width: 80%;
 	padding: 12px;
-	margin: 5px 0 10px 0px;
+	margin: 3px 0 30px 0px;
 	display: inline-block;
 	border: 2px solid rgba(34,167,240, 0.3);
 	background: #f1f1f1;
 	border-radius: 4px;
+	vertical-align: top;
+}
+#nomargin}{
+	margin-bottom: 5px;
 }
 
 .titleInp:focus {
@@ -372,12 +374,18 @@ footer a{
 }
 
 .selectlayoutcontainer form{
+	
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 60px;
 }
 #selectedImg{
 	margin-left: 0px !important;
 	margin-bottom: 20px;
 
+}
+#diaryBodyText{
+	text-align: justify;
 }
 
 
@@ -409,6 +417,7 @@ footer a{
 	#profileinfo label{
 	font-size: 13px;
 	}
+	
 }
 
 @media screen and (max-width: 600px) {
@@ -418,6 +427,7 @@ footer a{
 	#smallheader {
 		display: block !important;
 	}
+
 	#homecontainer h2{
 		font-size: 18px;
 	}
@@ -430,13 +440,18 @@ footer a{
 	}
 	.wordalign h3{
 		font-size: 14px;
-	}	
+	}
+	.wordalign p{
+		font-size: 11px;
+	}
 	#leftbody{
 		display: none;
 	}
 	#rightbody{
-		float: none;
-		width: 100%;
+		cleat: both;
+		width: 90%;
+		margin-right: 5%;
+		
 	}
 	.selectlayoutcontainer h2{
 		font-size: 20px;
@@ -445,6 +460,6 @@ footer a{
 		display: block;
 		width: 120px;
 		font-size: 13px;
-		margin-left: 80%;
+		margin-left:32%;
 	}
 }

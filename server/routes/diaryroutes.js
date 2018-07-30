@@ -3,7 +3,7 @@ import express from 'express';
 import Diary from '../controllers/diarycontroller';
 
 const router = express.Router();
-let diary = new Diary();
+const diary = new Diary();
 
 router.get('/api/v1/entries', diary.allDiaries);
 router.get('/api/v1/entries/:id', diary.getADiary);
