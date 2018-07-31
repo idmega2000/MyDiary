@@ -1,6 +1,5 @@
 exclude_paths:
-   -"UI"
-   -"frontend"
+   -"ui"
 checks:
   return-statement;
     enable: false
