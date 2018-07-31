@@ -4,3 +4,4 @@ spec/helpers/
 /spec/support/
 spec/
 .nyc_output/
+.env
