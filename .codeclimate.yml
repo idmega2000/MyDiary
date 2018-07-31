@@ -1,7 +1,7 @@
 exclude_paths:
    -"ui"
 checks:
-  return-statement;
+  return-statement:
     enable: false
   similar-code:
     enabled: false
