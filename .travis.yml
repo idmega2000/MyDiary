@@ -3,7 +3,7 @@ node_js:
   - "node"
 cache: bundler
 befores_script:
-  - npm i -D co
+  - npm i -D coveralls
 script:
   - npm test
 after_success:
