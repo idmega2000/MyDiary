@@ -16,11 +16,15 @@ class DbModel {
           const user_info = `CREATE TABLE IF NOT EXISTS users(user_id int PRIMARY KEY NOT NULL, 
             user_email varchar(30) not null UNIQUE, user_password varchar(30) not null, user_name varchar(40))`;
 
-            const diary_entries = `CREATE TABLE IF NOT EXISTS diaries( diary_id int PRIMARY KEY NOT NULL,
+            const diary_diaries = `CREATE TABLE IF NOT EXISTS diaries( diary_id int PRIMARY KEY NOT NULL,
                 user_id int REFERENCES users(user_id), diary_title varchar(80), 
                 diary_content varchar,  date_created TIMESTAMP, date_updated TIMESTAMP)`;
 
-        Promise.all([this.pool.query(diary_entries), this.pool.query(user_info)])
+                const reminder_feature = `CREATE TABLE IF NOT EXISTS reminder( reminder_id int PRIMARY KEY NOT NULL,
+                    user_id int REFERENCES users(user_id), reminder_title varchar(80), 
+                    reminder_content varchar,  reminder_date_created TIMESTAMP, reminder_set_date TIMESTAMP)`;
+
+        Promise.all([this.pool.query(diary_diaries), this.pool.query(user_info), this.pool.query(reminder_feature)])
         .then( () =>{
                 console.log('table created');
         })
