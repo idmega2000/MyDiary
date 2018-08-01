@@ -13,11 +13,11 @@ class DbModel {
     createAllTables(){
         console.log('i am here');
         
-          const user_info = `CREATE TABLE IF NOT EXISTS users(user_id int PRIMARY KEY NOT NULL, 
+          const user_info = `CREATE TABLE IF NOT EXISTS users(user_id int PRIMARY KEY NOT NULL, user_image bytea,
             user_email varchar(30) not null UNIQUE, user_password varchar(30) not null, user_name varchar(40))`;
 
             const diary_diaries = `CREATE TABLE IF NOT EXISTS diaries( diary_id int PRIMARY KEY NOT NULL,
-                user_id int REFERENCES users(user_id), diary_title varchar(80), 
+                user_id int REFERENCES users(user_id), diary_title varchar(80), diary_image bytea,
                 diary_content varchar,  date_created TIMESTAMP, date_updated TIMESTAMP)`;
 
                 const reminder_feature = `CREATE TABLE IF NOT EXISTS reminder( reminder_id int PRIMARY KEY NOT NULL,
