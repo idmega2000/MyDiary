@@ -5,6 +5,7 @@ import Diary from '../controllers/diarycontroller';
 const router = express.Router();
 const diary = new Diary();
 
+
 router.get('/api/v1/entries', diary.allDiaries);
 router.get('/api/v1/entries/:id', diary.getADiary);
 router.post('/api/v1/entries/', diary.postDiary);
