@@ -1,10 +1,10 @@
 import DbModels from "../../models/dbhconnect";
-import { InputErrors } from '../validator';
+import { signUpValidator , signInValidation } from '../authvalidator';
 
 const dbModels = new DbModels;
 
-    const signupUserExist = (req, res, next) => {
-        const check_error = InputErrors(req.body);
+ const signupUserExist = (req, res, next) => {
+        const check_error = signUpValidator(req.body);
   
       if (check_error) {
         return res.status(400).json({ message: check_error });
@@ -16,7 +16,6 @@ const dbModels = new DbModels;
         dbModels.pool.query(email_sql, param)
         .then(result => {
             if (result.rowCount !== 0){
-                console.log(result);
                 return res.status(404).json({ message: 'User already exist!' });
             }
             else{
@@ -27,5 +26,18 @@ const dbModels = new DbModels;
  }
 
 
-export default signupUserExist;
+ const signInUserNotEXist = (req, res, next) => {
+    const error_holder = signInValidation(req.body);
+  
+      if (error_holder) {
+        return res.status(400).json({ message: error_holder });
+      }
+      else{
+          next();
+      }
+
+ }
+
+
+export {signupUserExist, signInUserNotEXist};
   
