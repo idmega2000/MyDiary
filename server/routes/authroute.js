@@ -1,6 +1,6 @@
 import express from 'express';
 import UserAuth from '../controllers/authcontroller';
-import {signupUserExist, signInUserNotEXist} from '../helpers/middleware/authmw'
+import {signupUserExist, signInUserNotEXist} from '../middleware/authmw'
 
 const router = express.Router();
 

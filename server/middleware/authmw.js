@@ -1,5 +1,6 @@
-import DbModels from "../../models/dbhconnect";
-import { signUpValidator , signInValidation } from '../authvalidator';
+
+import DbModels from "../models/dbhconnect";
+import { signUpValidator , signInValidation } from '../helpers/authvalidator';
 
 const dbModels = new DbModels;
 

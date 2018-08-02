@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+
     const verifyToken = (req, res, next) => {
         const bearerheader = req.headers['authorization'];
         if(typeof bearerheader !== 'undefined'){
