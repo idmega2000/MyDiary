@@ -1,16 +1,28 @@
 import { allDiaryData } from '../models/userdata';
 import { getId } from '../helpers/default';
 import { inputErrors } from '../helpers/authvalidator';
+import diaryModel from '../models/diarymodel';
+
+const diary_model = new diaryModel;
 
 
 export default class Diary {
   allDiaries(req, res) {
-    // Empty Object
-    
-    if (!Object.keys(allDiaryData.diaries).length) {
-      return ({ message: 'Diary is Empty' });
+
+    diary_model.getAllDiaries(req.db_user_id)
+    .then(result => {
+      if (result.rowCount === 0){
+        return res.status(404).json({ message: 'Diary is Empty'});
     }
-    return res.status(200).json(allDiaryData.diaries);
+    else{
+      console.log(rows);
+      return res.status(200).json({ message:rows});
+    }
+    })
+    .catch( (err) => {
+      console.log(err);
+    })
+
   }
 
   getADiary(req, res) {

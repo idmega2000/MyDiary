@@ -25,8 +25,8 @@ class UserAuth {
         else{
           if(bcrypt.compareSync(req.body.user_password, result.rows[0].user_password)) {
               const token =jwt.sign({
-                email: result.rows[0].user_email,
-                email: result.rows[0].user_id
+                user_id: result.rows[0].user_id,
+                user_email: result.rows[0].user_email
               }, process.env.JWT_KEY)
               return res.status(201).json({ message: 'Auth Success', token: token});
              
