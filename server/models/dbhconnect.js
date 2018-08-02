@@ -11,7 +11,6 @@ class DbModel {
         this.pool = new Pool({connectionString});
     }
     createAllTables(){
-        console.log('i am here');
         
           const user_info = `CREATE TABLE IF NOT EXISTS users(user_id SERIAL PRIMARY KEY NOT NULL, user_image bytea,
             user_email varchar(50) not null UNIQUE, user_password varchar(100) not null, user_name varchar(60))`;
@@ -26,7 +25,7 @@ class DbModel {
 
         Promise.all([this.pool.query(user_info), this.pool.query(diary_diaries), this.pool.query(reminder_feature)])
         .then( () =>{
-                console.log('table created');
+                console.log('table now available');
         })
         .catch((error) =>{
             console.log(error)

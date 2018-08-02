@@ -1,11 +1,12 @@
 import { allDiaryData } from '../models/userdata';
 import { getId } from '../helpers/default';
-import { InputErrors } from '../helpers/validator';
+import { inputErrors } from '../helpers/authvalidator';
 
 
 export default class Diary {
   allDiaries(req, res) {
     // Empty Object
+    
     if (!Object.keys(allDiaryData.diaries).length) {
       return ({ message: 'Diary is Empty' });
     }
@@ -22,7 +23,7 @@ export default class Diary {
   }
 
   postDiary(req, res) {
-    const check_error = InputErrors(req.body);
+    const check_error = inputErrors(req.body);
 
     if (check_error) {
       return res.status(404).json({ message: check_error });

@@ -1,19 +1,20 @@
 
 import express from 'express';
-import authrouter from './authroute';
+import authroute from './authroute';
 import diaryrouter from './diaryroutes';
-import signupUserExist from '../helpers/midleware/signupmid'
+
+const loc_path = "/api/v1";
 
 
-import UserAuth from '../controllers/authcontroller';
-const user_auth = new UserAuth;
+
 const router = express.Router();
-router.get('/api/v1/auth/signup', (req, res) => {
+
+router.get(loc_path, (req, res) => {
     return res.send({message: 'i am here now'});
 })
 
-router.use( '/api/v1/auth/signup', signupUserExist , user_auth.createUser);
-router.use('api/v1/entries', diaryrouter);
+router.use( loc_path + "/auth/" , authroute );
+router.use(loc_path + "/entries", diaryrouter);
 
 export default router;
 
