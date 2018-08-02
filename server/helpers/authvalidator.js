@@ -34,7 +34,7 @@ const alpha_only = (/^[a-zA-Z ]*$/);
   
 }; */
 
-export const inputError = (text_input) => {
+export const inputErrors = (text_input) => {
 
   for (let i = 0; i < text_input.length; i++) {
     if ((!text_input[i]) || (text_input[i] === '')) {
@@ -59,7 +59,7 @@ export const inputError = (text_input) => {
 
 
 const signUpValidator = (text_input) => {
-  const input_error = inputError(text_input);
+  const input_error = inputErrors(text_input);
   if(input_error){
     return input_error;
   }
