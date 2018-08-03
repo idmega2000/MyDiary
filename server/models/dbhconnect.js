@@ -26,7 +26,7 @@ class DbModel {
                 diary_content varchar,  
                 date_created TIMESTAMP, 
                 date_updated TIMESTAMP,
-                diary_deleted varchar)`;
+                diary_deleted BOOLEAN)`;
 
                 const reminder_feature = `CREATE TABLE IF NOT EXISTS 
                 reminder( reminder_id SERIAL PRIMARY KEY NOT NULL,
