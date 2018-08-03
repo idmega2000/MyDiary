@@ -1,4 +1,5 @@
 
+
 export const dairyInput = (text_input) => {
 
     for (let i = 0; i < text_input.length; i++) {
@@ -9,5 +10,18 @@ export const dairyInput = (text_input) => {
             return 'minimum character in each field is 5';
         }
       }
+
+}
+
+export const singleGetValidator = (input) => {
+    let result =parseInt(input);
+    result = Number(input);
+    if(result<1){
+        return 'Invalid Request';
+    }
+    else if(!Number.isInteger(result)){
+        return 'Bad Request';
+    }
+       
 
 }

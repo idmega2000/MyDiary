@@ -12,7 +12,7 @@ const dbModels = new DbModels;
       }
 
         let input_email = req.body.user_email; 
-        const email_sql = `select * from users where user_email = $1`;
+        const email_sql = `SELECT * FROM users WHERE user_email = $1`;
         let param = [input_email];
         dbModels.pool.query(email_sql, param)
         .then(result => {
