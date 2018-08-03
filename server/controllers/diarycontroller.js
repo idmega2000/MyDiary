@@ -11,6 +11,7 @@ const diary_model = new diaryModel;
     diary_model.getAllDiaries(req.db_user_id)
     .then(result => {
       if (result.rowCount === 0){
+        console.log(result);
         return res.status(404).json({ message: 'Diary is Empty'});
     }
     else{
@@ -93,15 +94,22 @@ const diary_model = new diaryModel;
   } 
 
   deleteDiary(req, res) {
+    const errorHandler = singleGetValidator( req.params.id);
     
-    const data = req.params.id;
-    const single_diary = allDiaryData.diaries.find(item => item.diary_id === data);
-    const index = Object.keys(allDiaryData.diaries).indexOf(single_diary);
-    allDiaryData.diaries.splice(index, 1);
-    if (single_diary) {
-      return res.status(200).json(allDiaries.diaries);
+    if(errorHandler){
+      return res.status(400).json({message: errorHandler});
     }
-    return res.status(404).json({ message: 'Entry not found!' });
+
+    diary_model.deleteADiary(req.db_user_id, req.params.id)
+    .then( result => {
+     return res.status(201).json({message: 'Diary Deleted successfully'});
+    })
+    .catch(err => {
+     console.log(err);
+     return res.status(404).json({message: 'A problem occured'});
+      
+    })
+
   }
 }
 
