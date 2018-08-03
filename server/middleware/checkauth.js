@@ -22,7 +22,7 @@ import jwt from 'jsonwebtoken';
            
         }
         else{
-            res.sendStatus(403).json({message: 'Unauthorized'});
+            return res.status(403).json({message: 'Unauthorized'});
         }
     }
 

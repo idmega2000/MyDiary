@@ -11,7 +11,7 @@ router.get("api/v1", (req, res) => {
 })
 
 router.use("/api/v1/auth/" , authroute );
-router.use("/api/v1/entries" , diaryrouter);
+router.use("/api/v1/entries/" , diaryrouter);
 
 export default router;
 

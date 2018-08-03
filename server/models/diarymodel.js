@@ -7,8 +7,8 @@ class diaryModel{
 
   getAllDiaries(db_user_id){
       const sql = `SELECT * FROM diaries WHERE user_id = $1`;
-      let params = [db_user_id];
-      return dbModels.pool.query(sql, params);
+      let param = [db_user_id];
+      return dbModels.pool.query(sql, param);
     }
 
     addANewDiary(id, req_body){
@@ -28,6 +28,33 @@ class diaryModel{
       return dbModels.pool.query(sql, params);
         
   }
+
+  getSingleDiary(diaryId, userId){
+     const sql = `SELECT * FROM diaries WHERE user_id = $1 AND diary_id = $2`;
+      let param = [userId,diaryId];
+
+      return dbModels.pool.query(sql, param);
+  }
+  
+  editADiary(id, paramId, reqBody) {
+
+      const user_id = id;
+      const diary_title = reqBody.diary_title;
+      const diary_body = reqBody.diary_content;
+      const date_updated = new Date;
+
+    const sql = `UPDATE diaries SET 
+                  diary_title = $1,
+                  diary_content = $2,
+                  date_updated =$3
+                  WHERE user_id = $4 AND 
+                  diary_id =$5 RETURNING *;
+                  ` ;
+    let param = [diary_title, diary_body, date_updated, user_id, paramId];
+    return dbModels.pool.query(sql, param);
+  }
  
 }
+
+
 export default diaryModel;
