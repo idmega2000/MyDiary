@@ -5,3 +5,4 @@ spec/helpers/
 spec/
 .nyc_output/
 .env
+.vscode/
