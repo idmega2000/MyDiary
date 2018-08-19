@@ -1,85 +1,68 @@
- 
  //gotten from stackoverflow
 const emailReg = (/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 const alpha_only = (/^[a-zA-Z ]*$/);
 
-/*export const inputErrors = (text_input) => {
-
-  if ((!Object.keys(text_input).length) || (!text_input) || (typeof text_input !== 'object')) {
-    return 'Please fill all field';
-  }
-
-  for (let i = 0; i < text_input.length; i++) {
-    if ((!text_input[i]) || (text_input[i] === '')) {
-      return 'Please fill all field';
-    }
-  }
-
-  if((text_input.user_name.trim() === 0) || (text_input.user_password.trim() === 0 )){
-    return 'White spaces are not allowed in name and password'; 
-  }
-  else if (text_input.user_password.length < 6){
-    return 'password must be 6 character and above';
-  }
-
-  else if (!text_input.user_email.match(emailReg)) {
-    return 'Invalid Email';
-  }
-  else if (!text_input.user_name.match(alpha_only)){
-    return 'names can only be character';
-  }
-  else if (text_input.user_name.length < 3){
-    return 'names should be three character and above';
-  }
-  
-}; */
-
-export const inputErrors = (text_input) => {
-
-  for (let i = 0; i < text_input.length; i++) {
-    if ((!text_input[i]) || (text_input[i] === '')) {
-      return 'Please fill all field';
-    }
-  }
-
-  if ((!Object.keys(text_input).length) || (!text_input) || (typeof text_input !== 'object')) {
-    return 'Please fill all field';
-  }
-
-  else if (!text_input.user_email.match(emailReg)) {
-    return 'Invalid Email';
-  }
-}
-
-
 const signUpValidator = (text_input) => {
-  const input_error = inputErrors(text_input);
-  if(input_error){
-    return input_error;
-  }
-  if (!text_input.user_name.match(alpha_only)){
-    return 'names can only be character';
-  }
-  else if (text_input.user_name.length < 3){
-    return 'names should be three character and above';
-  }
+  //regex idea  gotten from https://forums.asp.net/t/1446828.aspx?Check+white+space+is+available+in+a+string+using+javascript
+  let whitespace = (/([\s]+)/g);
+  let password = text_input.user_password;
+  let email = text_input.user_email;
+  let name = text_input.user_name;
+ 
+ 
 
-  else if (!text_input.user_email.match(emailReg)) {
+  if ((!Object.keys(text_input).length) || (!text_input) || (typeof text_input !== 'object')) {
+    return 'Please fill all field';
+  }
+  else if(name === '' || email === '' || password === ''){
+    return 'Please fill all field';
+  }
+  else if(typeof name !== 'string' || typeof email !== 'string' || typeof password !== 'string'){
+    return 'invalid input';
+  } 
+  else if (password.match(whitespace) || name.match(whitespace) || email.match(whitespace)){
+    return 'white sapce are not allowed in input';
+  }
+  else if (!email.match(emailReg)) {
     return 'Invalid Email';
   }
-  else if((text_input.user_password.trim() === 0 )){
-    return 'White spaces are not allowed in name and password'; 
+  else if (!name.match(alpha_only)){
+    return 'names can only be character';
   }
-  else if (text_input.user_password.length < 6){
+  else if (name.length < 3){
+    return 'names should be three character and above';
+  }
+  else if (!email.match(emailReg)) {
+    return 'Invalid Email';
+  }
+  else if (password.length < 6){
     return 'password must be 6 character and above';
   }
 }
 
 const signInValidation = (text_input) => {
+  let whitespace = (/([\s]+)/g);
+  let password = text_input.user_password;
+  let email = text_input.user_email;
 
-  const input_error = inputErrors(text_input);
-  if(input_error){
-    return input_error;
+
+  if ((!Object.keys(text_input).length) || (!text_input) || (typeof text_input !== 'object')) {
+    return 'Please fill all field';
+  }
+  else if( email === '' || password === ''){
+    return 'Please fill all field';
+  }
+  else if(typeof email !== 'string' || typeof password !== 'string'){
+    return 'invalid input';
+  }
+  else if (password.match(whitespace) || email.match(whitespace)){
+    return 'white sapce are not allowed in input';
+  }
+  else if (!email.match(emailReg)) {
+    return 'Invalid Email';
+  }
+  else if (password.length < 6){
+    return 'password must be 6 character and above';
   }
 }
 

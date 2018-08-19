@@ -4,13 +4,12 @@ import allroutes from './server/routes/allroutes';
 import DbModel from './server/models/dbhconnect';
 import morgan from 'morgan';
 
-
 const app = express();
-const dbConnect = new DbModel;
-dbConnect.Db_Connect();
+export default app ;
 
+app.disable('x-powered-by');
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
 
 app.use(morgan('dev'));
 
@@ -20,7 +19,17 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+const dbConnect = new DbModel;
+
+  dbConnect.app_Connect();
+
+
+
 app.use(allroutes);
 app.listen(PORT, () => console.log(`Listening on Port ${ PORT }`))
 
-export default app ;
+ 
+
+
+
+
