@@ -38,7 +38,7 @@ class diaryModel{
   }
 
   getSingleDiary(diaryId, userId){
-     const sql = `SELECT * FROM diaries WHERE user_id = $1 AND (diary_id = $2 AND And diary_deleted is NULL)`;
+     const sql = `SELECT * FROM diaries WHERE user_id = $1 AND (diary_id = $2 AND diary_deleted is NULL)`;
       let param = [userId,diaryId];
 
       return dbModels.pool.query(sql, param);

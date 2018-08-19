@@ -1,6 +1,6 @@
 import express from 'express';
 import UserAuth from '../controllers/authcontroller';
-import {signupUserExist, signInUserNotEXist} from '../middleware/authmw'
+import {signupUserExist, signInUserInputVal} from '../middleware/authmw'
 
 const router = express.Router();
 
@@ -13,7 +13,7 @@ router.get('/signup', (req , res) => {
 });
 
 router.post('/signup', signupUserExist, user_auth.createUser);
-router.post('/login', signInUserNotEXist, user_auth.signInUser);
+router.post('/login', signInUserInputVal, user_auth.signInUser);
 
 export default router;
 
