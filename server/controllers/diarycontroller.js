@@ -111,7 +111,7 @@ class Diary {
       })
       .catch(err => {
         console.log(err);
-        return res.status(500).json({ error: 'Edit Failed' });
+        return res.status(500).json({ error: 'Delete Failed' });
 
       })
 
