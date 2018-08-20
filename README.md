@@ -1,5 +1,5 @@
 # MyDiary
-[![Build Status](https://travis-ci.org/idmega2000/MyDiary.svg?branch=develop)](https://travis-ci.org/idmega2000/MyDiary) [![Coverage Status](https://coveralls.io/repos/github/idmega2000/MyDiary/badge.svg?branch=develop)](https://coveralls.io/github/idmega2000/MyDiary?branch=develop)
+[![Build Status](https://travis-ci.org/idmega2000/MyDiary.svg?branch=develop)](https://travis-ci.org/idmega2000/MyDiary) [![Coverage Status](https://coveralls.io/repos/github/idmega2000/MyDiary/badge.svg?)](https://coveralls.io/github/idmega2000/MyDiary?)
 [![Maintainability](https://api.codeclimate.com/v1/badges/980ffb812f3100c13f19/maintainability)](https://codeclimate.com/github/idmega2000/MyDiary/maintainability)
 
 
