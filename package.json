@@ -18,6 +18,7 @@
   },
   "author": "Idris Kelani",
   "license": "ISC",
+  "homepage": "https://github.com/idmega2000/MyDiary",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
