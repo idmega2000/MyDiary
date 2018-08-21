@@ -32,7 +32,7 @@ class UserAuth {
               user_id: result.rows[0].user_id,
               user_email: result.rows[0].user_email
             }, process.env.JWT_KEY)
-            return res.status(200).json({ message: 'Auth Successful', token: token });
+            return res.status(200).json({ message: 'Login Successful', token: token });
 
           }
           else {

@@ -14,7 +14,7 @@ class Diary {
           return res.status(404).json({ error: 'Diary is Empty' });
         }
         else {
-          return res.status(200).json({ diary: result.rows });
+          return res.status(200).json({ message: 'All Diary Selected', diary: result.rows });
         }
       })
       .catch(err => {
@@ -34,7 +34,7 @@ class Diary {
     diary_model.getSingleDiary(req.params.id, req.db_user_id)
       .then(result => {
         if (result.rowCount > 0) {
-          return res.status(200).json({ diary: result.rows[0] });
+          return res.status(200).json({  message: 'Diary Selected Successfully', diary: result.rows[0] });
         }
         else {
           return res.status(404).json({ error: 'Diary not found' });
@@ -52,7 +52,7 @@ class Diary {
     }
     diary_model.addANewDiary(req.db_user_id, req.body)
       .then(result => {
-        return res.status(201).json({ message: 'Diary Created successfully', diary: result.rows[0] });
+        return res.status(201).json({ message: 'Diary Created Successfully', diary: result.rows[0] });
       })
       .catch(err => {
         console.log(err);
@@ -77,10 +77,10 @@ class Diary {
     diary_model.editADiary(req.db_user_id, req.params.id, req.body)
       .then(result => {
         if(result.rowCount === 0){
-          return res.status(404).json({error: 'Diary not found' });
+          return res.status(404).json({error: 'Diary Not Found' });
         }
         else{
-          return res.status(200).json({ message: 'Diary Updated successfully', diary: result.rows[0]});
+          return res.status(200).json({ message: 'Diary Updated Successfully', diary: result.rows[0]});
         }
         
       })
@@ -103,10 +103,10 @@ class Diary {
     diary_model.deleteADiary(req.db_user_id, req.params.id)
       .then(result => {
         if(result.rowCount === 0){
-          return res.status(404).json({error: 'Diary not found' });
+          return res.status(404).json({error: 'Diary Not Found' });
         }
         else{
-          return res.status(200).json({ message: 'Diary Deleted successfully' });
+          return res.status(200).json({ message: 'Diary Deleted Successfully' });
         }   
       })
       .catch(err => {

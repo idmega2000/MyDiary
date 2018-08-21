@@ -9,7 +9,7 @@ const user_auth = new UserAuth;
 
 
 router.get('/signup', (req , res) => {
- return res.send({message: 'welcome'});
+ return res.send({message: 'Welcome'});
 });
 
 router.post('/signup', signupUserExist, user_auth.createUser);

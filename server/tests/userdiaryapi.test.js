@@ -251,7 +251,7 @@ describe('All diary Api Tests', () => {
           .end((err, res) => {
             assert.equal(res.statusCode, 404);
             assert.equal(res.body.hasOwnProperty("error"), true);
-            assert.equal(res.body.error, 'Diary not found');
+            assert.equal(res.body.error, 'Diary Not Found');
             done();
           });
       });
@@ -284,7 +284,7 @@ describe('All diary Api Tests', () => {
           .end((err, res) => {
             assert.equal(res.statusCode, 404);
             assert.equal(res.body.hasOwnProperty("error"), true);
-            assert.equal(res.body.error, 'Diary not found');
+            assert.equal(res.body.error, 'Diary Not Found');
             done();
           });
       });
@@ -312,7 +312,7 @@ describe('All diary Api Tests', () => {
           .expect('Content-Type', /json/)
           .end((err, res) => {
             assert.equal(res.statusCode, 200);
-            assert.equal(res.body.message, 'Diary Deleted successfully');
+            assert.equal(res.body.message, 'Diary Deleted Successfully');
             done();
           });
       });
