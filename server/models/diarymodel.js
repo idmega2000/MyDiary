@@ -7,7 +7,6 @@ class diaryModel{
 
   getAllDiaries(db_user_id){
 
-    let diaryDeleted = true;
       const sql = `SELECT diary_id,
       user_id, 
       diary_title, 

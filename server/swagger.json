@@ -1,0 +1,365 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "MyDiary",
+        "description": "MyDiary is an online journal where users can pen down their thoughts and feelings",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:5000",
+    "basePath": "/api/v1",
+    "tags": [
+        {
+            "name": "Users",
+            "description": "API for users"
+        },
+        {
+            "name": "Diary Entries",
+            "description": "API for diary entries"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/auth/signup": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Register/Create new user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "User that we want to create",
+                        "schema": {
+                            "properties": {
+                                "user_name": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "user_email": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "user_password": {
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Registration Successful",
+                        "schema": {
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                },
+                                "token": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "message": "Registration Successful",
+                                "token": "ufHUkfgkduegkGUITIGIGbdlkklsjldlljdljlVHJ.udhgklyOUhbkKOLHIkKlllgjiugBFYfJfXyStvuiOMklIjhJcqEPlKuvRcSdcvfgARDS.ctHILhbiGIKfyNJrpKAcNiuYiGlOpHvZxHtJgNgJh"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Login user",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "User that want to login",
+                        "schema": {
+                            "properties": {
+                                "user_email": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "user_password": {
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login Successful",
+                        "schema": {
+                            "properties": {
+                                "message": {
+                                    "type": "string"
+                                },
+                                "token": {
+                                    "type": "string"
+                                }
+                            },
+                            "example": {
+                                "message": "Login Successful",
+                                "token": "ufHUkfgkduegkGUITIGIGbdlkklsjldlljdljlVHJ.udhgklyOUhbkKOLHIkKlllgjiugBFYfJfXyStvuiOMklIjhJcqEPlKuvRcSdcvfgARDS.ctHILhbiGIKfyNJrpKAcNiuYiGlOpHvZxHtJgNgJh"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/entries": {
+            "get": {
+                "tags": [
+                    "Diary Entries"
+                ],
+                "summary": "Get all diary entries",
+                "responses": {
+                    "200": {
+                        "description": "All Diary Selected",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Entry"
+                            },
+                            "example": [
+                                {
+                                    "user_id": "1",
+                                    "diary_id": "1",
+                                    "diary_title": "This is a title",
+                                    "diary_content": "This is a content",
+                                    "diary_image": "null",
+                                    "date_created": "2018-08-23 13:41:08.127",
+                                    "date_updated": "2018-08-23 13:41:08.127"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Creating a new diary entry",
+                "tags": [
+                    "Diary Entries"
+                ],
+                "parameters": [
+                    {
+                        "name": "entry",
+                        "in": "body",
+                        "description": "New Diary Entry",
+                        "schema": {
+                            "properties": {
+                                "diary_title": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "diary_content": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "diary_image": {
+                                    "type": "bytea"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Diary Created successfully",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Entry"
+                            },
+                            "example": {
+                                "user_id": "1",
+                                "diary_id": "1",
+                                "diary_title": "This is a title",
+                                "diary_content": "This is a content",
+                                "diary_image": "null",
+                                "date_created": "2018-08-23 13:41:08.127",
+                                "date_updated": "2018-08-23 13:41:08.127"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/entries/{diary_id}": {
+            "parameters": [
+                {
+                    "name": "diary_id",
+                    "in": "path",
+                    "required": true,
+                    "description": "The id of a diary entry",
+                    "type": "integer"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "Diary Entries"
+                ],
+                "summary": "Get diary entry with the given id",
+                "responses": {
+                    "200": {
+                        "description": "Diary Selected successfully",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Entry"
+                            },
+                            "example": {
+                                "user_id": "1",
+                                "diary_id": "1",
+                                "diary_title": "This is a title",
+                                "diary_content": "This is a content",
+                                "diary_image": "null",
+                                "date_created": "2018-08-23 13:41:08.127",
+                                "date_updated": "2018-08-23 13:41:08.127"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update diary entry with the given id",
+                "tags": [
+                    "Diary Entries"
+                ],
+                "parameters": [
+                    {
+                        "name": "diary_id",
+                        "in": "body",
+                        "description": "Entry with Edited new values",
+                        "schema": {
+                            "properties": {
+                                "diary_title": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "diary_content": {
+                                    "required": true,
+                                    "type": "string"
+                                },
+                                "diary_image": {
+                                    "type": "bytea"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Diary Updated successfully",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Entry"
+                            },
+                            "example": {
+                                "user_id": "1",
+                                "diary_id": "1",
+                                "diary_title": "This is a title",
+                                "diary_content": "This is a content",
+                                "diary_image": "null",
+                                "date_created": "2018-08-23 13:41:08.127",
+                                "date_updated": "2018-08-23 13:41:08.127"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Diary Entries"
+                ],
+                "summary": "Get diary entry with the given id",
+                "responses": {
+                    "200": {
+                        "description": "Diary Deleted Successfully"
+                    }
+                }
+            }
+            
+        }
+    },
+    "definitions": {
+        "User": {
+            "required": [
+                "user_name",
+                "user_email",
+                "user_password"
+            ],
+            "properties": {
+                "user_id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                },
+                "user_name": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "user_email": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "user_password": {
+                    "type": "string"
+                }
+            }
+        },
+        "Entry": {
+            "required": [
+                "diary_title",
+                "diary_content"
+            ],
+            "properties": {
+                "user_id": {
+                    "type": "integer"
+                },
+                "diary_id": {
+                    "type": "integer",
+                    "uniqueItems": true
+                },
+                "diary_title": {
+                    "type": "string"
+                },
+                "diary_content": {
+                    "type": "string"
+                },
+                "diary_image": {
+                    "type": "bytea"
+                },
+                "date_created": {
+                    "type": "string"
+                },
+                "date_updated": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

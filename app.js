@@ -4,6 +4,7 @@ import allroutes from './server/routes/allroutes';
 import DbModel from './server/models/dbhconnect';
 import morgan from 'morgan';
 
+
 const app = express();
 export default app ;
 
@@ -21,7 +22,7 @@ app.use(bodyParser.json());
 
 const dbConnect = new DbModel;
 
-  dbConnect.app_Connect();
+dbConnect.app_Connect();
 
 
 

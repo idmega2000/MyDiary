@@ -1,17 +1,6 @@
 import supertest from 'supertest';
 import app from '../../app';
 import assert from 'assert';
-import { em } from '../models/dbhconnect';
-import events from 'events';
-import DbModel from '../models/dbhconnect';
-
-export let cretedEmitter = new events.EventEmitter();
-
-
-let databaseThing = new DbModel;
-
-
-
 
 
 const request = supertest(app);
@@ -34,6 +23,11 @@ const existing_user_wrong_password = {
 
 const existing_user_login = {
   user_email: 'idrisforyou@gmail.com',
+  user_password: 'andela'
+}
+
+const login_empty_user_email = {
+  user_email: '',
   user_password: 'andela'
 }
 
@@ -248,6 +242,21 @@ describe('All Authentication Tests', () => {
 
   describe('Login Api Test', () => {
 
+    describe('when user enter an empty user email', () => {
+      it('should not login and return error', (done) => {
+        request.post(path + '/login')
+          .send(login_empty_user_email)
+          .expect('Content-Type', /json/)
+          .end((err, res) => {
+            assert.equal(res.statusCode, 400);
+            assert.equal(res.body.hasOwnProperty("error"), true);
+            assert.equal(res.body.error, 'Please fill all field');
+            done();
+          });
+      });
+
+    });
+
     describe('when user enter a non existing user details', () => {
       it('should not login and return error', (done) => {
         request.post(path + '/login')
@@ -267,14 +276,12 @@ describe('All Authentication Tests', () => {
     describe('when user enter a valid user details', () => {
       it('should not login and return token', (done) => {
         request.post(path + '/login')
-
           .send(existing_user_login)
           .expect('Content-Type', /json/)
           .end((err, res) => {
-            cretedEmitter.emit('EndofTest');
             assert.equal(res.statusCode, 200);
             assert.equal(res.body.hasOwnProperty("token"), true);
-            assert.equal(res.body.message, 'Auth Successful');
+            assert.equal(res.body.message, 'Login Successful');
             done();
           });
       });
