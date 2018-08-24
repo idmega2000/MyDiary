@@ -1,6 +1,7 @@
 
 import DbModels from "./dbhconnect";
 const dbModels = new DbModels;
+import date_created from './dbhconnect';
 
 
 class diaryModel{
@@ -19,12 +20,19 @@ class diaryModel{
     }
 
     addANewDiary(id, req_body){
+
+      let date_created = new Date();
+      
+      if (process.env.NODE_ENV === 'test') {
+        date_created.setDate(date_created.getDate() + 1);
+    }
+
       const user_id = id;
       const diary_title = req_body.diary_title;
       const diary_image = req_body.diary_image;
       const diary_body = req_body.diary_content;
-      const date_created = new Date;
-      const date_updated = new Date;
+     
+      const date_updated =  new Date();
 
 
       const sql = `INSERT INTO diaries(user_id, diary_title, diary_image, diary_content, date_created, date_updated ) 

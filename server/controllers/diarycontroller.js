@@ -63,17 +63,6 @@ class Diary {
 
   editDiary(req, res) {
 
-    const errorHandler = singleGetValidator(req.params.id);
-
-    if (errorHandler) {
-      return res.status(400).json({ error: errorHandler });
-    }
-
-    const check_error = dairyInput(req.body);
-    if (check_error) {
-      return res.status(400).json({error: check_error });
-    }
-
     diary_model.editADiary(req.db_user_id, req.params.id, req.body)
       .then(result => {
         if(result.rowCount === 0){
@@ -81,8 +70,8 @@ class Diary {
         }
         else{
           return res.status(200).json({ message: 'Diary Updated Successfully', diary: result.rows[0]});
-        }
         
+        }
       })
       .catch(err => {
         console.log(err);
