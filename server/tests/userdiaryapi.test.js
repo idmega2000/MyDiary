@@ -3,8 +3,6 @@ import app from '../../app';
 import assert from 'assert';
 import jwt from 'jsonwebtoken';
 
-import DbModel from '../models/dbhconnect';
-
 
 const path = "/api/v1/entries/";
 const request = supertest(app);

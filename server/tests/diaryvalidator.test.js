@@ -5,7 +5,7 @@ import {dairyInput, singleGetValidator} from '../helpers/diaryvalidator'
 describe('Diary Input Test', () => {
 
 
-    const short_title_input = {
+    const short_title_input =  {
         diary_title: 'to',
         diary_content: 'this is toy'
     }
