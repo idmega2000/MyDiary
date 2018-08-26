@@ -276,7 +276,6 @@ header a:hover{
 	
 }
 
-
 footer{	
 	clear: both;
 	background-color: rgb(36, 41, 46);
@@ -286,7 +285,6 @@ footer{
 	line-height: 1.7;
 	display: block;
 	color:  #e3e3e3;
-	
 }
 #indexfooter{
 	position: absolute;
@@ -347,7 +345,6 @@ footer p,footer a{
     display: block;
     transition: 0.3s;
 }
-
 
 
 

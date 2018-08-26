@@ -24,9 +24,9 @@
 				</div>
 				<nav>
 					<ul>
-						<li><a href="adddiary.html">Add Diary</a></li>
-						<li><a href="viewdiary.html">View Diary</a></li>
-						<li><a href="settings.html">Settings</a></li>
+						<li><a href="viewdiary.html">Diary</a></li>
+						<li><a href="reminder.html">Reminder</a></li>
+						<li><a href="profile.html">Profile</a></li>
 						<li><a href="index.html">Logout</a></li>
 					</ul>
 				</nav>
@@ -41,15 +41,13 @@
 				<label>Kelanidris7@gmail.com </label>
 				<label>08067011624 </label>	
 			</div>
-			<div id="diaryinfo">
-				<label><a href="reminder.html" class="editbtn"> Set Reminder</a></label>
-			</div>
 		</div>
 		<div id="rightbody">
 			<section id="slidenav">
-				<a href="viewdiary.html">View Diary</a>
+				<a href="viewdiary.html">Diary</a>
 				<a href="adddiary.html">Add Diary</a>
-				<a href="settings.html">settings</a>
+				<a href="reminder.html">Reminder</a>
+				<a href="profile.html">Profile</a>
 				<a href="index.html">Logout</a>
 			</section>
 			<div id="rightbodycontainer">
@@ -59,6 +57,10 @@
 				
 					<label for="psw">Upload Picture</label><br>
 					<input type="file" placeholder="Upload Picture" id="uploadInp" name="upload"><br>
+					
+					<label for="title">Email</label> <br>
+					<input type="email" placeholder="Enter Email" class="titleInp" name="title">
+					<br>
 
 					<label for="title">Phone number</label> <br>
 					<input type="text" placeholder="Enter phone number" class="titleInp" name="title">
@@ -93,6 +95,7 @@
 		<p>MyDiary &copy; 2018  <a href="#" >Terms & Privacy</a></p>
 	</footer>
 	<script type="text/javascript" src="./js/defaultjs.js"></script>
+	<script type="text/javascript" src="./js/headerjs.js"></script>
 </body>
 
 </html>
