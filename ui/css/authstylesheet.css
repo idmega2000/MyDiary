@@ -1,5 +1,4 @@
 
-
 body{
 	font-family: open sans, sans-serif, Helvetical;
 	line-height: 1.5;
@@ -10,14 +9,17 @@ body{
 }
 #allbodycontainer{
 	margin: 0;
-	height:100%;
+	min-height:100%;
 	width: 100%;
+	display: flex;
 }
 
 #leftbody{
+	flex: 1;
 	float: left;
 	width: 20%;
-	height: 100%;
+	min-height : 100%;
+	background-color: #A9A9A9;
 }
 #profileinfo{
 	display: block;
@@ -223,6 +225,7 @@ header a:hover{
     left: 0;
     background-color: #e3e3e3; 
     transition: 0.5s; 
+	margin-bottom: 40px;
 }
 
 /* The navigation menu links */
@@ -388,9 +391,29 @@ footer p, footer a{
 	text-align: justify;
 }
 
+/* settings*/
+ 
+
+/* profile page */
+.allProfileInfo > p{
+	padding: 10px;
+}
 
 
+.allProfileInfo > img{
+	margin-left: 30px;
+	width: 200px;
+	height: 200px;
+}
 
+#setEdit{
+	 margin-top: 50px;
+	 margin-left: 10px;
+ }
+ 
+ 
+ 
+ 
 
 
 @media screen and (min-width: 600px) and (max-width: 900px) {
@@ -416,6 +439,10 @@ footer p, footer a{
 	}
 	#profileinfo label{
 	font-size: 13px;
+	}
+	.editbtn{
+		width: 70px ;
+		font-size: 12px;
 	}
 	
 }
@@ -450,7 +477,8 @@ footer p, footer a{
 	#rightbody{
 		cleat: both;
 		width: 90%;
-		margin-right: 5%;
+		margin-right: 4%;
+		margin-left: 4%;
 		
 	}
 	.selectlayoutcontainer h2{
@@ -462,4 +490,5 @@ footer p, footer a{
 		font-size: 13px;
 		margin-left:32%;
 	}
+
 }
