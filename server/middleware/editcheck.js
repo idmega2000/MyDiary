@@ -1,21 +1,10 @@
 import DbModels from "../models/dbhconnect";
-import { dairyInput, singleGetValidator } from '../helpers/diaryvalidator';
 
 let dbModels = new DbModels;
 
 
 
 let isEditable = (req, res, next) => {
-    const errorHandler = singleGetValidator(req.params.id);
-
-    if (errorHandler) {
-      return res.status(400).json({ error: errorHandler });
-    }
-
-    const check_error = dairyInput(req.body);
-    if (check_error) {
-      return res.status(400).json({error: check_error });
-    }
 
     let db_user_id = req.db_user_id;
     let input_diary_id = req.params.id;

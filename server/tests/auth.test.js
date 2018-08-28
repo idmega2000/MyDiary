@@ -193,7 +193,7 @@ describe('All Authentication Tests', () => {
     describe('when user enter an empty data', () => {
       it('should not create user and return error', (done) => {
         request.post(path + '/signup')
-          .send()
+          .send({})
           .expect('Content-Type', /json/)
           .end((err, res) => {
             assert.equal(res.statusCode, 400);
