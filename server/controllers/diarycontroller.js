@@ -1,5 +1,4 @@
 
-import { dairyInput, singleGetValidator } from '../helpers/diaryvalidator';
 import diaryModel from '../models/diarymodel';
 
 const diary_model = new diaryModel;
@@ -25,12 +24,6 @@ class Diary {
   }
 
   getADiary(req, res) {
-
-    const errorHandler = singleGetValidator(req.params.id);
-
-    if (errorHandler) {
-      return res.status(400).json({ error: errorHandler });
-    }
     diary_model.getSingleDiary(req.params.id, req.db_user_id)
       .then(result => {
         if (result.rowCount > 0) {
@@ -46,10 +39,6 @@ class Diary {
   }
 
   addDiary(req, res) {
-    const diary_input = dairyInput(req.body);
-    if (diary_input) {
-      return res.status(400).json({ error: diary_input });
-    }
     diary_model.addANewDiary(req.db_user_id, req.body)
       .then(result => {
         return res.status(201).json({ message: 'Diary Created Successfully', diary: result.rows[0] });
@@ -83,12 +72,6 @@ class Diary {
   }
 
   deleteDiary(req, res) {
-    const errorHandler = singleGetValidator(req.params.id);
-
-    if (errorHandler) {
-      return res.status(400).json({ error: errorHandler });
-    }
-
     diary_model.deleteADiary(req.db_user_id, req.params.id)
       .then(result => {
         if(result.rowCount === 0){

@@ -1,5 +1,12 @@
+import supertest from 'supertest';
+import app from '../../app';
 import assert from 'assert';
-import {signUpValidator, signInValidation} from '../helpers/authvalidator';
+
+
+const request = supertest(app);
+const pathSigup = '/api/v1/auth/signup';
+const pathLogin = '/api/v1/auth/login';
+
 
 describe('Signup Validation Test', () => {
 
@@ -25,49 +32,136 @@ describe('Signup Validation Test', () => {
         user_email: 'dimeji@iiiyahoo.com',
         user_password: 'sho'
     }
+
+    const non_alpha_name_only = {
+        user_name: 'koli55jay',
+        user_email: 'dimeji@iiiyahoo.com',
+        user_password: 'sho'
+    }
+    const empty_name = {
+        user_name: '',
+        user_email: 'dimeji@iiiyahoo.com',
+        user_password: 'shodime'
+    }
     
 
 
 
+    describe('When user enter an empty data', () => {
+        it('should return an error', done => {
+            request.post(pathSigup)
+                .send(empty_name)
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'Please fill all field');
+                    done();
+                })
+        });
+    });
+
+
+    
+    describe('When user enter an empty data', () => {
+        it('should return an error', done => {
+            request.post(pathSigup)
+                .send({})
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'Please fill all field');
+                    done();
+                })
+        });
+    });
+
+
+
+
+    describe('When user enter a wrong email format', () => {
+        it('should return an error', done => {
+            request.post(pathSigup)
+                .send(bad_email_format)
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'Invalid Email');
+                    done();
+                })
+        });
+    });
+
+
+    
     describe('When user enter an empty details', () => {
         it('should return an error', done => {
-            assert.equal(signUpValidator({}), 'Please fill all field');
-            done();
-        })
+            request.post(pathSigup)
+                .send('')
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'Please fill all field');
+                    done();
+                })
+        });
     });
-    describe('When user enter an empty details', () => {
+
+    
+    describe('When user enter a wrong email format', () => {
         it('should return an error', done => {
-            assert.equal(signUpValidator(''), 'Please fill all field');
-            done();
-        })
+            request.post(pathSigup)
+                .send(whitespace_name)
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'white sapce are not allowed in input');
+                    done();
+                })
+        });
     });
+
+
+    
+    describe('When user enter a wrong input format', () => {
+        it('should return an error', done => {
+            request.post(pathSigup)
+                .send(bad_input_format)
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'invalid input');
+                    done();
+                })
+        });
+    });
+
+        
 
     describe('When user enter a wrong email format', () => {
         it('should return an error', done => {
-            assert.equal(signUpValidator(bad_email_format), 'Invalid Email');
-            done();
-        })
+            request.post(pathSigup)
+                .send(less_password)
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'password must be 6 character and above');
+                    done();
+                })
+        });
     });
+
 
     describe('When user enter a wrong email format', () => {
         it('should return an error', done => {
-            assert.equal(signUpValidator(whitespace_name), 'white sapce are not allowed in input');
-            done();
-        })
-    });
-
-    describe('When user enter a wrong email format', () => {
-        it('should return an error', done => {
-            assert.equal(signUpValidator(bad_input_format), 'invalid input');
-            done();
-        })
-    });
-
-    describe('When user enter a wrong email format', () => {
-        it('should return an error', done => {
-            assert.equal(signUpValidator(less_password), 'password must be 6 character and above');
-            done();
-        })
+            request.post(pathSigup)
+                .send(non_alpha_name_only)
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'names can only be character');
+                    done();
+                })
+        });
     });
 
 });
@@ -92,50 +186,110 @@ describe('Login Validation Test', () => {
         user_email: 'dimejiiii@yahoo.com',
         user_password: 'sho'
     }
+
+    const empty_email = {
+        user_email: '',
+        user_password: 'shodimu'
+    }
+    
     
 
-
+    describe('When user enter an empty data', () => {
+        it('should return an error', done => {
+            request.post(pathLogin)
+                .send({})
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'Please fill all field');
+                    done();
+                })
+        });
+    });
 
     describe('When user enter an empty details', () => {
         it('should return an error', done => {
-            assert.equal(signInValidation({}), 'Please fill all field');
-            done();
-        })
+            request.post(pathLogin)
+                .send('')
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'Please fill all field');
+                    done();
+                })
+        });
     });
-    describe('When user enter an empty details', () => {
+    describe('When user enter an empty data', () => {
         it('should return an error', done => {
-            assert.equal(signInValidation(''), 'Please fill all field');
-            done();
-        })
+            request.post(pathLogin)
+                .send(empty_email)
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'Please fill all field');
+                    done();
+                })
+        });
     });
+
+
 
     describe('When user enter a wrong email format', () => {
         it('should return an error', done => {
-            assert.equal(signInValidation(bad_email_format), 'Invalid Email');
-            done();
-        })
+            request.post(pathLogin)
+                .send(bad_email_format)
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'Invalid Email');
+                    done();
+                })
+        });
     });
 
-    describe('When user enter a wrong email format', () => {
+
+    describe('When user enter a input with white spaces', () => {
         it('should return an error', done => {
-            assert.equal(signInValidation(whitespace_name), 'white sapce are not allowed in input');
-            done();
-        })
+            request.post(pathLogin)
+                .send(whitespace_name)
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'white sapce are not allowed in input');
+                    done();
+                })
+        });
     });
 
-    describe('When user enter a wrong email format', () => {
+
+    
+    describe('When user enter a input with wrong input format', () => {
         it('should return an error', done => {
-            assert.equal(signInValidation(bad_input_format), 'invalid input');
-            done();
-        })
+            request.post(pathLogin)
+                .send(bad_input_format)
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'invalid input');
+                    done();
+                })
+        });
     });
 
-    describe('When user enter a wrong email format', () => {
+
+    describe('When user enter a password input with char less than 6', () => {
         it('should return an error', done => {
-            assert.equal(signInValidation(less_password), 'password must be 6 character and above');
-            done();
-        })
+            request.post(pathLogin)
+                .send(less_password)
+                .expect('Content-Type', /json/)
+                .end((err, res) => {
+                    assert.equal(res.statusCode, 400);
+                    assert.equal(res.body.error, 'password must be 6 character and above');
+                    done();
+                })
+        });
     });
+
 
 });
 
