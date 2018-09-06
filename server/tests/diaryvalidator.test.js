@@ -22,10 +22,6 @@ describe('Diary Input Test', () => {
         diary_title: 'to',
         diary_content: 'this is toy'
     }
-    const bad_input_format = {
-        diary_title: 'the game of thrones',
-        diary_content: { tobi: 'thisis' }
-    }
     const only_whitespace_title = {
         diary_title: '   ',
         diary_content: 'g hfff'
@@ -45,26 +41,12 @@ describe('Diary Input Test', () => {
     describe('When user enter an empty data', () => {
         it('should return an error', done => {
             request.post(path)
-                .send({})
                 .set('Authorization', 'Bearer ' + token)
-                .expect('Content-Type', /json/)
-                .end((err, res) => {
-                    assert.equal(res.statusCode, 400);
-                    assert.equal(res.body.error, 'Please fill all field');
-                    done();
-                })
-        });
-    });
-
-
-
-
-
-    describe('When user enter an empty details', () => {
-        it('should return an error', done => {
-            request.post(path)
-                .send('')
-                .set('Authorization', 'Bearer ' + token)
+                .set('Accept', 'application/json')
+                .set('Content-Type','multipart/form-data')
+                .set('connection', 'keep-alive')
+                .field('diary_title','')
+                .field('diary_content','')
                 .expect('Content-Type', /json/)
                 .end((err, res) => {
                     assert.equal(res.statusCode, 400);
@@ -79,8 +61,12 @@ describe('Diary Input Test', () => {
     describe('When user enter a short title input', () => {
         it('should return an error', done => {
             request.post(path)
-                .send(empty_title)
                 .set('Authorization', 'Bearer ' + token)
+                .set('Accept', 'application/json')
+                .set('Content-Type','multipart/form-data')
+                .set('connection', 'keep-alive')
+                .field('diary_title', empty_title.diary_title)
+                .field('diary_content', empty_title.diary_content) 
                 .expect('Content-Type', /json/)
                 .end((err, res) => {
                     assert.equal(res.statusCode, 400);
@@ -93,8 +79,12 @@ describe('Diary Input Test', () => {
     describe('When user enter a short title input', () => {
         it('should return an error', done => {
             request.post(path)
-                .send(short_title_input)
                 .set('Authorization', 'Bearer ' + token)
+                .set('Accept', 'application/json')
+                .set('Content-Type','multipart/form-data')
+                .set('connection', 'keep-alive')
+                .field('diary_title', short_title_input.diary_title)
+                .field('diary_content', short_title_input.diary_content) 
                 .expect('Content-Type', /json/)
                 .end((err, res) => {
                     assert.equal(res.statusCode, 400);
@@ -107,8 +97,12 @@ describe('Diary Input Test', () => {
     describe('When user enter only white space', () => {
         it('should return an error', done => {
             request.post(path)
-                .send(only_whitespace_title)
                 .set('Authorization', 'Bearer ' + token)
+                .set('Accept', 'application/json')
+                .set('Content-Type','multipart/form-data')
+                .set('connection', 'keep-alive')
+                .field('diary_title', only_whitespace_title.diary_title)
+                .field('diary_content', only_whitespace_title.diary_content)
                 .expect('Content-Type', /json/)
                 .end((err, res) => {
                     assert.equal(res.statusCode, 400);
@@ -119,25 +113,15 @@ describe('Diary Input Test', () => {
     });
 
 
-    describe('When user enter a wrong email format', () => {
-        it('should return an error', done => {
-            request.post(path)
-                .send(bad_input_format)
-                .set('Authorization', 'Bearer ' + token)
-                .expect('Content-Type', /json/)
-                .end((err, res) => {
-                    assert.equal(res.statusCode, 400);
-                    assert.equal(res.body.error, 'invalid input');
-                    done();
-                })
-        });
-    });
-
     describe('When user enter a less diary content', () => {
         it('should return an error', done => {
             request.post(path)
-                .send(less_content)
                 .set('Authorization', 'Bearer ' + token)
+                .set('Accept', 'application/json')
+                .set('Content-Type','multipart/form-data')
+                .set('connection', 'keep-alive')
+                .field('diary_title', less_content.diary_title)
+                .field('diary_content', less_content.diary_content)
                 .expect('Content-Type', /json/)
                 .end((err, res) => {
                     assert.equal(res.statusCode, 400);
@@ -222,5 +206,9 @@ describe('Single Get request Id validator', () => {
                 })
         });
     });
+
+
+
+    
 
 })

@@ -1,6 +1,7 @@
 import supertest from 'supertest';
 import app from '../../app';
 import assert from 'assert';
+import {getrandomString, getFileName} from '../helpers/utils';
 
 const request = supertest(app);
 
@@ -79,3 +80,23 @@ describe('When a user visit the home page', () => {
   });
 
 });
+
+
+describe('When user enter a wrong email format', () => {
+  it('should return an error', done => {
+      assert.ok((getrandomString(20).length), 20);
+      assert.ok(typeof(getrandomString(20)), 'string');
+      done();
+  })
+});
+
+
+describe('When user enter a wrong email format', () => {
+  it('should return an error', done => {
+      assert.ok(typeof(getFileName('aaa.png')), 'string');
+      done();
+  })
+});
+
+
+

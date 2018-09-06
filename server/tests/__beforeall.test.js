@@ -23,7 +23,7 @@ before(function (done) {
     //load a user into the database for test use
     request.post(path + '/signup')
       .send(start_user)
-      .expect('Content-Type', /json/)
+      .expect('Content-Type', 'multipart/form-data')
       .end((err, res) => {
         assert.equal(res.statusCode, 201);
         done();

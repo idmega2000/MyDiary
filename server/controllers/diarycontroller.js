@@ -17,7 +17,6 @@ class Diary {
         }
       })
       .catch(err => {
-        console.log(err);
         return res.status(500).json({ error: 'Failed' });
       })
 
@@ -30,7 +29,7 @@ class Diary {
           return res.status(200).json({  message: 'Diary Selected Successfully', diary: result.rows[0] });
         }
         else {
-          return res.status(404).json({ error: 'Diary not found' });
+          return res.status(404).json({ error: 'Diary not found' }); 
         }
       })
       .catch(err => {
@@ -39,12 +38,11 @@ class Diary {
   }
 
   addDiary(req, res) {
-    diary_model.addANewDiary(req.db_user_id, req.body)
+    diary_model.addANewDiary(req.db_user_id, req, res)
       .then(result => {
         return res.status(201).json({ message: 'Diary Created Successfully', diary: result.rows[0] });
       })
       .catch(err => {
-        console.log(err);
         return res.status(500).json({ error: 'Create Diary Failed' });
 
       })
@@ -52,18 +50,12 @@ class Diary {
 
   editDiary(req, res) {
 
-    diary_model.editADiary(req.db_user_id, req.params.id, req.body)
+    diary_model.editADiary(req.db_user_id, req.params.id, req, res)
       .then(result => {
-        if(result.rowCount === 0){
-          return res.status(404).json({error: 'Diary Not Found' });
-        }
-        else{
+ 
           return res.status(200).json({ message: 'Diary Updated Successfully', diary: result.rows[0]});
-        
-        }
       })
       .catch(err => {
-        console.log(err);
         return res.status(500).json({ error: 'Edit Diary Failed' });
 
       })
@@ -82,7 +74,6 @@ class Diary {
         }   
       })
       .catch(err => {
-        console.log(err);
         return res.status(500).json({ error: 'Delete Failed' });
 
       })
