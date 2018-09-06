@@ -1,25 +1,14 @@
 import DbModels from "../models/dbhconnect";
-import { dairyInput, singleGetValidator } from '../helpers/diaryvalidator';
 
 let dbModels = new DbModels;
 
 
-
 let isEditable = (req, res, next) => {
-    const errorHandler = singleGetValidator(req.params.id);
-
-    if (errorHandler) {
-      return res.status(400).json({ error: errorHandler });
-    }
-
-    const check_error = dairyInput(req.body);
-    if (check_error) {
-      return res.status(400).json({error: check_error });
-    }
-
     let db_user_id = req.db_user_id;
     let input_diary_id = req.params.id;
     let current_date = new Date();
+
+
 
     const sql = `SELECT * FROM diaries WHERE user_id = $1 AND (diary_id = $2)`;
 
@@ -32,17 +21,17 @@ let isEditable = (req, res, next) => {
         themainEdit(db_user_id,input_diary_id, current_date, next);
     })
     .catch(err =>{
-        console.log(err, err)
-        return res.status(403).json({error: 'You cannot edit this diary content'});
+        return res.status(500).json({error: 'Edit Failed'});
     });
 
     let themainEdit = (db_user_id,input_diary_id, current_date, next) => {
     
         const date_sql = `SELECT * FROM diaries WHERE user_id = $1 AND (diary_id = $2 AND date_created > $3 ::date - interval '1 day')`;
-        let param2 = [db_user_id, input_diary_id, current_date];
+        let param2 = [db_user_id, input_diary_id, current_date]; 
         dbModels.pool.query(date_sql, param2)
     .then(result => {
         if(result.rowCount > 0){
+            res.locals.oldDiaryImage = result.rows[0].diary_image;
             next();
         }
         else {

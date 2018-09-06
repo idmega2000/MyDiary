@@ -66,8 +66,12 @@ describe('All diary Api Tests', () => {
     describe('when user create a diary entry', () => {
       it('should save diary into db and return the diary contents', (done) => {
         request.post(path)
-          .send(new_diary_entry)
           .set('Authorization', 'Bearer ' + token)
+          .set('Accept', 'application/json')
+          .set('Content-Type','multipart/form-data')
+          .set('connection', 'keep-alive')
+          .field('diary_title', new_diary_entry.diary_title)
+          .field('diary_content', new_diary_entry.diary_content) 
           .expect('Content-Type', /json/)
           .end((err, res) => {
             assert.equal(res.statusCode, 201);
@@ -100,8 +104,10 @@ describe('All diary Api Tests', () => {
     describe('When an auth user login', () => {
       it('should return all diary content of the user', (done) => {
         request.get(path)
-          .send()
           .set('Authorization', 'Bearer ' + token)
+          .set('Accept', 'application/json')
+          .set('Content-Type','multipart/form-data')
+          .set('connection', 'keep-alive')
           .expect('Content-Type', /json/)
           .end((err, res) => {
             assert.equal(res.statusCode, 200);
@@ -198,8 +204,12 @@ describe('All diary Api Tests', () => {
     describe('When an auth user send empty input', () => {
       it('should return error to fill empty field', (done) => {
         request.put(path + '1')
-          .send()
           .set('Authorization', 'Bearer ' + token)
+          .set('Accept', 'application/json')
+          .set('Content-Type','multipart/form-data')
+          .set('connection', 'keep-alive')
+          .field('diary_title', '')
+          .field('diary_content', '') 
           .expect('Content-Type', /json/)
           .end((err, res) => {
             assert.equal(res.statusCode, 400);
@@ -209,6 +219,52 @@ describe('All diary Api Tests', () => {
           });
       });
     });
+
+
+    describe('When an auth user send empty input', () => {
+      it('should return error to fill empty field', (done) => {
+        request.put(path + '1')
+          .set('Authorization', 'Bearer ' + token)
+          .set('Accept', 'application/json')
+          .set('Content-Type','multipart/form-data')
+          .set('connection', 'keep-alive')
+          .field('diary_title', 'The world')
+          .field('diary_content', 'testing the program') 
+          .field('fieldname', 'tobilola')
+          .attach('files', './server/tests/testdata/abc.pdf')
+          .expect('Content-Type', /json/)
+          .end((err, res) => {
+            assert.equal(res.statusCode, 400);
+            assert.equal(res.body.hasOwnProperty("error"), true);
+            assert.equal(res.body.error, 'Invalid Image input type');
+            done();
+          });
+      });
+    });
+
+
+    describe('When an auth user send empty input', () => {
+      it('should return error to fill empty field', (done) => {
+        request.put(path + '1')
+          .type('form')
+          .set('Authorization', 'Bearer ' + token)
+          .set('Accept', 'application/json')
+          .set('Content-Type','multipart/form-data')
+          .set('connection', 'keep-alive')
+          .field('diary_title', 'The world')
+          .field('diary_content', 'testing the program') 
+          .attach('diaryImage', './server/tests/testdata/abc.pdf')
+          .expect('Content-Type', /json/)
+          .end((err, res) => {
+            assert.equal(res.statusCode, 400);
+            assert.equal(res.body.hasOwnProperty("error"), true);
+            assert.equal(res.body.error, 'Invalid Image type');
+            done();
+          });
+      });
+    });
+
+
 
     describe('When an auth user give wrong id type to edit', () => {
       it('should return error of Invalid Request', (done) => {
@@ -224,32 +280,38 @@ describe('All diary Api Tests', () => {
           });
       });
     });
-    
-    describe('When an auth user edit a diary', () => {
-      it('should return the edited diary content', (done) => {
-        request.put(path + '1')
-          .send(edit_diary_entry)
-          .set('Authorization', 'Bearer ' + token)
-          .expect('Content-Type', /json/)
-          .end((err, res) => {
-            assert.equal(res.statusCode, 200);
-            assert.equal(res.body.hasOwnProperty("diary"), true);
-            assert.equal(res.body.diary.diary_title, edit_diary_entry.diary_title);
-            assert.equal(res.body.diary.diary_content, edit_diary_entry.diary_content);
-            done();
-          });
-      });
-    });
-    describe('When an auth user edit a diary that does not exist', () => {
-      it('should return error of Edit Failed', (done) => {
+
+
+    describe('When an auth user delete a non existing diary', () => {
+      it('should return error of not found ', (done) => {
         request.put(path + '5')
-          .send(edit_diary_entry)
+          .send()
           .set('Authorization', 'Bearer ' + token)
           .expect('Content-Type', /json/)
           .end((err, res) => {
             assert.equal(res.statusCode, 404);
             assert.equal(res.body.hasOwnProperty("error"), true);
             assert.equal(res.body.error, 'Diary Not Found');
+            done();
+          });
+      });
+    });
+    
+    describe('When an auth user edit a diary', () => {
+      it('should return the edited diary content', (done) => {
+        request.put(path + '1')
+          .set('Authorization', 'Bearer ' + token)
+          .set('Accept', 'application/json')
+          .set('Content-Type','multipart/form-data')
+          .set('connection', 'keep-alive')
+          .field('diary_title', edit_diary_entry.diary_title)
+          .field('diary_content', edit_diary_entry.diary_content) 
+          .expect('Content-Type', /json/)
+          .end((err, res) => {
+            assert.equal(res.statusCode, 200);
+            assert.equal(res.body.hasOwnProperty("diary"), true);
+            assert.equal(res.body.diary.diary_title, edit_diary_entry.diary_title);
+            assert.equal(res.body.diary.diary_content, edit_diary_entry.diary_content);
             done();
           });
       });

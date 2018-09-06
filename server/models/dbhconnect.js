@@ -5,17 +5,17 @@ dotenv.config();
 
 const user_info = `CREATE TABLE IF NOT EXISTS users
 (user_id SERIAL PRIMARY KEY NOT NULL, 
-  user_image bytea,
-  user_email varchar(50) not null UNIQUE, 
-  user_password varchar(100) not null, 
-  user_name varchar(60))`;
+  user_image VARCHAR,
+  user_email VARCHAR(50) not null UNIQUE, 
+  user_password VARCHAR(100) not null, 
+  user_name VARCHAR(60))`;
 
 const user_diary = `CREATE TABLE IF NOT EXISTS diaries( 
       diary_id SERIAL PRIMARY KEY NOT NULL,
       user_id int REFERENCES users(user_id), 
-      diary_title varchar(80), 
-      diary_image bytea,
-      diary_content varchar,  
+      diary_title VARCHAR(80), 
+      diary_image VARCHAR,
+      diary_content VARCHAR,  
       date_created TIMESTAMP, 
       date_updated TIMESTAMP,
       diary_deleted BOOLEAN)`;
@@ -23,8 +23,8 @@ const user_diary = `CREATE TABLE IF NOT EXISTS diaries(
 const user_reminder = `CREATE TABLE IF NOT EXISTS 
       reminder( reminder_id SERIAL PRIMARY KEY NOT NULL,
           user_id int REFERENCES users(user_id), 
-          reminder_title varchar(80), 
-          reminder_content varchar,  
+          reminder_title VARCHAR(80), 
+          reminder_content VARCHAR,  
           reminder_date_created TIMESTAMP, 
           reminder_set_date TIMESTAMP)`;
 export let em = new events.EventEmitter();
